@@ -1,6 +1,8 @@
 <style>
   .navbar {
     padding-left: 30px;
+    padding-right: 30px;
+    padding-top: 20px;
   }
 
   .fa-bell {
@@ -35,17 +37,29 @@
     transform: translateY(-8px) rotate(-45deg);
   }
 
-  .logimgside{
-    width: 200px;
+  .logimgside {
+    width: 350px;
     border-radius: 10px;
   }
 
-  .offcanvas-end{
+  .offcanvas-end {
     width: fit-content;
   }
-  
-  .nav-item{
-    width: 300px;
+
+  .nav-item {}
+
+  .arowicon {
+    margin-top: 15px;
+    font-size: 30px;
+  }
+
+  .navbartext {
+    font-size: 25px;
+    font-weight: bold;
+    background-color: rgb(99, 99, 99);
+    border-radius: 10px;
+    text-align: center;
+    margin-bottom: 5px;
   }
 </style>
 
@@ -60,27 +74,30 @@
       <div class="bar"></div>
       <div class="bar"></div>
     </div>
-    <div class="offcanvas offcanvas-end" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions"
+    <div class="offcanvas offcanvas-end " data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions"
       aria-labelledby="offcanvasWithBothOptionsLabel">
-      <div class="offcanvas-header">
+      <div class="offcanvas-header position-relative">
         <div class="logarou">
-          <img class="logimgside" src="https://i.ibb.co/D4yN56d/logo-kala.png" width="200px" alt="" srcset="">
+          <img class="logimgside" src="https://i.ibb.co/CQ3n2k8/logo-kala.png" width="500px" alt="" srcset="">
         </div>
-        
-        
-        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+
+        <i class="arowicon fa-solid fa-circle-right position-absolute top-0 end-0" data-bs-dismiss="offcanvas"
+          aria-label="Close" style="color: #000000;"></i>
+        {{!-- <i class="bi bi-arrow-right-circle-fill" data-bs-dismiss="offcanvas" aria-label="Close"></i> --}}
+        {{!-- <button type="button" class="btn-arrow" data-bs-dismiss="offcanvas" aria-label="Close"></button> --}}
       </div>
       <div class="offcanvas-body">
         <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">Home</a>
+            <a class="nav-link active navbartext" aria-current="page" href="#"><span><i class="fa-solid fa-house-chimney"
+                style="color: #ffffff;"></i></span> Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Link</a>
+            <a class="nav-link navbartext" href="#">Link</a>
           </li>
-          
+
         </ul>
-        
+
       </div>
     </div>
   </div>
