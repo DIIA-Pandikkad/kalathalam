@@ -38,7 +38,7 @@
   }
 
   .logimgside {
-    width: 350px;
+    width: 250px;
     border-radius: 10px;
   }
 
@@ -51,15 +51,29 @@
   .arowicon {
     margin-top: 15px;
     font-size: 30px;
+    margin-right: 384px;
+    text-shadow: 0px 2px 10px #ffffff;
+    background-color: #ffffff;
+    border-radius: 50px;
   }
 
-  .navbartext {
-    font-size: 25px;
+  .nav-link {
+    font-size: 20px;
     font-weight: bold;
-    background-color: rgb(99, 99, 99);
+    background-color: rgb(0, 0, 0);
     border-radius: 10px;
     text-align: center;
     margin-bottom: 5px;
+    width: 250px;
+    color: #ffffffd8;
+  }
+
+  .navbar-nav .nav-link.active, .nav-link:hover{
+    color: #ffffff
+  }
+
+  .offcanvas{
+    margin-right: -120px;
   }
 </style>
 
@@ -77,23 +91,23 @@
     <div class="offcanvas offcanvas-end " data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions"
       aria-labelledby="offcanvasWithBothOptionsLabel">
       <div class="offcanvas-header position-relative">
+        <i class="arowicon fa-solid fa-circle-right position-absolute top-0 end-0" data-bs-dismiss="offcanvas"
+          aria-label="Close" style="color: #000000;"></i>
         <div class="logarou">
           <img class="logimgside" src="https://i.ibb.co/CQ3n2k8/logo-kala.png" width="500px" alt="" srcset="">
         </div>
 
-        <i class="arowicon fa-solid fa-circle-right position-absolute top-0 end-0" data-bs-dismiss="offcanvas"
-          aria-label="Close" style="color: #000000;"></i>
+        
         {{!-- <i class="bi bi-arrow-right-circle-fill" data-bs-dismiss="offcanvas" aria-label="Close"></i> --}}
         {{!-- <button type="button" class="btn-arrow" data-bs-dismiss="offcanvas" aria-label="Close"></button> --}}
       </div>
       <div class="offcanvas-body">
         <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
           <li class="nav-item">
-            <a class="nav-link active navbartext" aria-current="page" href="#"><span><i class="fa-solid fa-house-chimney"
-                style="color: #ffffff;"></i></span> Home</a>
+            <a class="nav-link active navbartext" aria-current="page" href="/">HOME</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link navbartext" href="#">Link</a>
+            <a class="nav-link navbartext" href="/public_portal">RESULTS</a>
           </li>
 
         </ul>
@@ -110,3 +124,26 @@
   }
 
 </script>
+{{!-- <div class="container-fluid offcanvas offcanvas-end " data-bs-scroll="true" tabindex="-1"
+  id="offcanvasWithBothOptions" aria-labelledby="offcanvasWithBothOptionsLabel">
+  <div class="row flex-nowrap">
+    <div class="bg-dark col-auto col-md-2 min-vh-100">
+      <div class="bg-dark">
+        <a href="" class="d-flex text-decoration-none align-items-center">
+          <span class="fs-4 d-none-d-sm-inline">SideMenu</span>
+        </a>
+        <ul class="nav nav-pills flex-column">
+          <li class="nav-item">
+            <a href="" class="nav-link active">Dashboard</a>
+          </li>
+          <li class="nav-item">
+            <a href="" class="nav-link ">Result</a>
+          </li>
+          <li class="nav-item">
+            <a href="" class="nav-link ">Check</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div> --}}
