@@ -6,7 +6,7 @@ router.get('/', function(req, res, next) {
   res.render('users/public/landing_page', { title: 'Public' });
 });
 
-router.get('/public_portal', function(req, res, next) {
-  res.render('users/public/resultPage', { title: 'About' });
+router.get('/dashboard', function(req, res, next) {
+  res.render('users/public/dashboard', { title: 'About' });
 });
 module.exports = router;

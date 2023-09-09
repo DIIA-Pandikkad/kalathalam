@@ -1,4 +1,5 @@
 <style>
+  
   .navbar {
     padding-left: 30px;
     padding-right: 30px;
@@ -38,20 +39,19 @@
   }
 
   .logimgside {
-    width: 250px;
+    width: 100%;
     border-radius: 10px;
   }
 
-  .offcanvas-end {
-    width: fit-content;
-  }
 
-  .nav-item {}
+  .nav-item {
+    border-radius: 0;
+  }
 
   .arowicon {
     margin-top: 15px;
     font-size: 30px;
-    margin-right: 384px;
+    margin-right: 235px;
     text-shadow: 0px 2px 10px #ffffff;
     background-color: #ffffff;
     border-radius: 50px;
@@ -64,17 +64,30 @@
     border-radius: 10px;
     text-align: center;
     margin-bottom: 5px;
-    width: 250px;
     color: #ffffffd8;
+    width: 100%;
   }
 
   .navbar-nav .nav-link.active, .nav-link:hover{
     color: #ffffff
   }
 
-  .offcanvas{
-    margin-right: -120px;
+
+  .btnSi{
+    background-color: #000000;
+    color: #ffffff;
+    border-radius: 0px;
+    width: 100%;
+    height: 40px;
+    font-size: 20px;
+    font-weight: bold;
+    border: none;
   }
+
+  .offcanvas-body::-webkit-scrollbar {
+    display: none;
+  }
+
 </style>
 
 
@@ -102,17 +115,34 @@
         {{!-- <button type="button" class="btn-arrow" data-bs-dismiss="offcanvas" aria-label="Close"></button> --}}
       </div>
       <div class="offcanvas-body">
-        <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+        <ul class="navbar-nav justify-content-end flex-grow-1 ">
           <li class="nav-item">
             <a class="nav-link active navbartext" aria-current="page" href="/">HOME</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link navbartext" href="/public_portal">RESULTS</a>
+            <a class="nav-link navbartext" href="/feeds">FEEDS</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link navbartext" href="/gallery">GALLERY</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link navbartext" href="/dowloads">DOWNLOADS</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link navbartext" href="/dashboard">RESULTS</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link navbartext" href="/schedule">SCHEDULE</a>
           </li>
 
         </ul>
-
+        
       </div>
+      <div class="footer">
+          <div class="signup">
+            <a href="/signup" class="btn btnSi" role="button" aria-pressed="true">SIGN UP</a>
+          </div>
+        </div>
     </div>
   </div>
 </nav>
@@ -124,26 +154,3 @@
   }
 
 </script>
-{{!-- <div class="container-fluid offcanvas offcanvas-end " data-bs-scroll="true" tabindex="-1"
-  id="offcanvasWithBothOptions" aria-labelledby="offcanvasWithBothOptionsLabel">
-  <div class="row flex-nowrap">
-    <div class="bg-dark col-auto col-md-2 min-vh-100">
-      <div class="bg-dark">
-        <a href="" class="d-flex text-decoration-none align-items-center">
-          <span class="fs-4 d-none-d-sm-inline">SideMenu</span>
-        </a>
-        <ul class="nav nav-pills flex-column">
-          <li class="nav-item">
-            <a href="" class="nav-link active">Dashboard</a>
-          </li>
-          <li class="nav-item">
-            <a href="" class="nav-link ">Result</a>
-          </li>
-          <li class="nav-item">
-            <a href="" class="nav-link ">Check</a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</div> --}}

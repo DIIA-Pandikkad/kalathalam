@@ -11,7 +11,7 @@ var publicRouter = require('./routes/public');
 
 var app = express();
 
-// view engine setup
+// view engine setup\
 app.use(express.static(__dirname + '/public'));
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
