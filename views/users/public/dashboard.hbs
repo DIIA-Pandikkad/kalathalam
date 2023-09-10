@@ -1,45 +1,57 @@
+<style>
+  .sidebar {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 100;
+    box-shadow: inset -1px 0 0 rgba(0, 0, 0, .1);
+    margin: 5px;
+    border-radius: 10px;
+  }
+
+  .nav-link{
+    text-align: left;
+  }
+
+  .navitemsbar{
+    height: 100%;
+    width: 100%;
+  }
+  
+  .nav-item{
+    width: 215px;
+  }
+</style>
 <section class="bg-primary">
-  <div class="offcanvas show" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions"
-      aria-labelledby="offcanvasWithBothOptionsLabel">
-      <div class="offcanvas-header position-relative">
-        <i class="arowicon fa-solid fa-circle-right position-absolute top-0 end-0" data-bs-dismiss="offcanvas"
-          aria-label="Close" style="color: #000000;"></i>
-        <div class="logarou">
-          <img class="logimgside" src="https://i.ibb.co/CQ3n2k8/logo-kala.png" width="500px" alt="" srcset="">
-        </div>
-
-        
-        {{!-- <i class="bi bi-arrow-right-circle-fill" data-bs-dismiss="offcanvas" aria-label="Close"></i> --}}
-        {{!-- <button type="button" class="btn-arrow" data-bs-dismiss="offcanvas" aria-label="Close"></button> --}}
-      </div>
-      <div class="offcanvas-body">
-        <ul class="navbar-nav justify-content-end flex-grow-1 ">
-          <li class="nav-item">
-            <a class="nav-link active navbartext" aria-current="page" href="/">HOME</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link navbartext" href="/feeds">FEEDS</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link navbartext" href="/gallery">GALLERY</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link navbartext" href="/dowloads">DOWNLOADS</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link navbartext" href="/dashboard">RESULTS</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link navbartext" href="/schedule">SCHEDULE</a>
-          </li>
-
-        </ul>
-        
-      </div>
-      <div class="footer">
-          <div class="signup">
-            <a href="/signup" class="btn btnSi" role="button" aria-pressed="true">SIGN UP</a>
+  <div class="row">
+    <div class="col-md-2 sidebar bg-success d-flex align-items-center">
+      <div class="row">
+        <div class="row">
+          <div class="col-md-12">
+            <i class="fas fa-home"></i>
           </div>
         </div>
+        <div class="col-md-12 navitemsbar">
+          <ul class="nav flex-column ">
+            <li class="nav-item">
+              <a class="nav-link active" href="/dashboard"><i class="fas fa-home"></i> Dashboard</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/dashboard/profile"><i class="fas fa-user"></i> Profile</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/dashboard/notifications"><i class="fas fa-bell"></i> Notifications</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/dashboard/settings"><i class="fas fa-cog"></i> Settings</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/dashboard/logout"><i class="fas fa-sign-out-alt"></i> Logout</a>
+            </li>
+          </ul>
+        </div>
+      </div>
     </div>
+  </div>
 </section>

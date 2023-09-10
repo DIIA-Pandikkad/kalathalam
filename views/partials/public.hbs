@@ -86,6 +86,7 @@
 
   .offcanvas-body::-webkit-scrollbar {
     display: none;
+    
   }
 
 </style>
@@ -93,7 +94,12 @@
 
 <nav class="navbar fixed-top">
   <div class="container-fluid">
-    <i class="fa-regular fa-bell" style="color: #ffffff;"></i>
+    {{#if home}}
+    <a href="/"><i class="fas fa-bell" style="color: #ffffff;" ></i></a>
+    
+    {{else}}
+    <i class="fas fa-bell" style="opacity: 0;" ></i>
+    {{/if}}
 
     <div class="toggle-button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions"
       aria-controls="offcanvasWithBothOptions" onmouseenter="toggleNav()" onmouseleave="toggleNav()">
