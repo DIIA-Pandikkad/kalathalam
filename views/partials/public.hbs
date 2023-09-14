@@ -24,7 +24,7 @@
     transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
   }
 
-  .sidebarBar{
+  .sidebarBar {
     width: 20px;
     height: 2px;
     background-color: #fff;
@@ -95,31 +95,14 @@
 
   }
 
-  .layoutSidebar {
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    z-index: 100;
-    box-shadow: inset -1px 0 0 rgba(0, 0, 0, .1);
-    margin: 5px;
-    border-radius: 10px;
-    background-color: #165f50;
 
-      {
-        {
-        !-- padding: 15px;
-        --
-      }
-    }
-  }
 
   .sidebarButtons .fas {
     color: #ffffff;
     font-size: 20px;
     cursor: pointer;
     margin-right: 10px;
-    
+
   }
 
   .sidebarButtons {
@@ -164,8 +147,68 @@
     font-weight: 500;
   }
 
-  .hide {
-    margin-left: -200px;
+  
+  .layoutSidebar {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 100;
+    box-shadow: inset -1px 0 0 rgba(0, 0, 0, .1);
+    margin: 5px;
+    border-radius: 10px;
+    background-color: #165f50;
+    transition: 0.3s;
+  }
+
+  .hideNav {
+    margin-left: -12%;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    border-radius: 0px;
+    transition: 0.3s;
+
+  }
+
+  .hideMenue,
+  .hideButtons {
+    display: none;
+    transition: 0.3s;
+  }
+
+
+  
+  @media (max-width: 767.98px) {
+    .layoutSidebar {
+      position: fixed;
+      margin: 0px;
+      width: 55px;
+      border-radius: 0px;
+      transition: 0.3s;
+
+    }
+
+    .hideNav {
+      position: fixed;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      z-index: 100;
+      box-shadow: inset -1px 0 0 rgba(0, 0, 0, .1);
+      margin: 5px;
+      border-radius: 10px;
+      background-color: #165f50;
+      transition: 0.3s;
+    }
+
+    .nav,
+    .hideable {
+    display: none;
+    transition: 0.3s;
+  }
+  }
+  .navbarMenue {
+    
   }
 </style>
 
@@ -173,20 +216,16 @@
 <nav class="navbar">
   <div class="col-md-2 layoutSidebar">
     <div class="sidebarButtons d-flex">
-      {{!-- <div class="toggle-button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions"
-        aria-controls="offcanvasWithBothOptions">
-        <div class="sidebarBar"></div>
-        <div class="sidebarBar"></div>
-        <div class="sidebarBar"></div>
-      </div> --}}
       <div class="toggle-bar" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions"
         aria-controls="offcanvasWithBothOptions">
-        <i class="fas fa-bars"></i>
+        <i class="fas fa-bars smHide hideable"></i>
       </div>
-      <a href="/"><i class="fas fa-home "></i></a>
-      <div class="flex-grow-1"> </div>
-      <i class="fas fa-close" onclick="hideSidebar()"></i>
+      <a href="/"><i class="fas fa-home smHide hideable"></i></a>
+      <div class="flex-grow-1 "> </div>
+      <i class="fas fa-close smHide hideable" onclick="hideSidebar()"></i>
+      <i class="fas fa-bars openNav d-none" onclick="hideSidebar()"></i>
     </div>
+
     <div class="sidebarContents d-flex align-items-center">
       <div class="col-md-12 navitemsbar">
         <ul class="nav flex-column navbarMenue">
@@ -281,9 +320,18 @@
   }
 
   function hideSidebar() {
-    const sidebar= document.querySelector('.layoutSidebar');
-    sidebar.classList.toggle('hide');
+    const sidebar = document.querySelector('.layoutSidebar');
+    const navbarMenue = document.querySelector('.navbarMenue');
+    const navbarButtons = document.querySelectorAll('.hideable');
+    const openNav = document.querySelector('.openNav');
+
+    sidebar.classList.toggle('hideNav');
+    navbarMenue.classList.toggle('hideMenue');
+    navbarButtons.forEach(button => button.classList.toggle('d-none'));
+    openNav.classList.toggle('d-none');
     console.log('hide');
   }
+
+  
 
 </script>
