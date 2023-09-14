@@ -1,5 +1,4 @@
 <style>
-  
   .navbar {
     padding-left: 30px;
     padding-right: 30px;
@@ -23,6 +22,12 @@
     height: 3px;
     background-color: #fff;
     transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+  }
+
+  .sidebarBar{
+    width: 20px;
+    height: 2px;
+    background-color: #fff;
   }
 
   /* JavaScript will add animation classes */
@@ -57,7 +62,7 @@
     border-radius: 50px;
   }
 
-  .nav-link {
+  .navbar-nav .nav-link {
     font-size: 20px;
     font-weight: bold;
     background-color: rgb(0, 0, 0);
@@ -68,12 +73,13 @@
     width: 100%;
   }
 
-  .navbar-nav .nav-link.active, .nav-link:hover{
+  .navbar-nav .nav-link.active,
+  .nav-link:hover {
     color: #ffffff
   }
 
 
-  .btnSi{
+  .btnSi {
     background-color: #000000;
     color: #ffffff;
     border-radius: 0px;
@@ -86,20 +92,133 @@
 
   .offcanvas-body::-webkit-scrollbar {
     display: none;
+
+  }
+
+  .layoutSidebar {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 100;
+    box-shadow: inset -1px 0 0 rgba(0, 0, 0, .1);
+    margin: 5px;
+    border-radius: 10px;
+    background-color: #165f50;
+
+      {
+        {
+        !-- padding: 15px;
+        --
+      }
+    }
+  }
+
+  .sidebarButtons .fas {
+    color: #ffffff;
+    font-size: 20px;
+    cursor: pointer;
+    margin-right: 10px;
     
   }
 
+  .sidebarButtons {
+    margin-top: 15px;
+    margin-left: 15px;
+    margin-right: 15px;
+  }
+
+  .sidebarContents {
+    height: 100%;
+    width: 100%;
+  }
+
+  .nav .nav-link {
+    text-align: left;
+    background: #165f50;
+    border-radius: 10px;
+    color: #ffffff9d;
+    font-size: 20px;
+    font-weight: 500;
+    margin-bottom: 5px;
+    margin-left: 20px;
+    margin-right: 20px;
+    transition: 0.3s;
+  }
+
+    {
+      {
+      !-- #64c5b1 #165f50--
+    }
+  }
+
+  .nav .nav-link:hover {
+    color: #ffffff;
+    font-weight: 500;
+    margin-left: 10px;
+    background: #457c71;
+  }
+
+  .nav .nav-link.active {
+    color: #ffffff;
+    font-weight: 500;
+  }
+
+  .hide {
+    margin-left: -200px;
+  }
 </style>
 
-
+{{#if dashboard}}
+<nav class="navbar">
+  <div class="col-md-2 layoutSidebar">
+    <div class="sidebarButtons d-flex">
+      {{!-- <div class="toggle-button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions"
+        aria-controls="offcanvasWithBothOptions">
+        <div class="sidebarBar"></div>
+        <div class="sidebarBar"></div>
+        <div class="sidebarBar"></div>
+      </div> --}}
+      <div class="toggle-bar" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions"
+        aria-controls="offcanvasWithBothOptions">
+        <i class="fas fa-bars"></i>
+      </div>
+      <a href="/"><i class="fas fa-home "></i></a>
+      <div class="flex-grow-1"> </div>
+      <i class="fas fa-close" onclick="hideSidebar()"></i>
+    </div>
+    <div class="sidebarContents d-flex align-items-center">
+      <div class="col-md-12 navitemsbar">
+        <ul class="nav flex-column navbarMenue">
+          <li class="nav-item">
+            <a class="nav-link text-left active" href="/">DASHBOARD</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-left" href="/dashboard/profile"></i>LEADERBOARD</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-left" href="/dashboard/notifications">RESULT</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-left" href="/dashboard/settings">HOUSE BASED RESULT</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-left" href="/dashboard/logout">SCHEDULE</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</nav>
+{{else}}
 <nav class="navbar fixed-top">
   <div class="container-fluid">
-    {{#if home}}
-    <a href="/"><i class="fas fa-bell" style="color: #ffffff;" ></i></a>
-    
-    {{else}}
-    <i class="fas fa-bell" style="opacity: 0;" ></i>
-    {{/if}}
+
+    <a href="/"><i class="fas fa-bell" style="color: #ffffff;"></i></a>
+
+
+    <i class="fas fa-bell" style="opacity: 0;"></i>
+
 
     <div class="toggle-button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions"
       aria-controls="offcanvasWithBothOptions" onmouseenter="toggleNav()" onmouseleave="toggleNav()">
@@ -107,6 +226,7 @@
       <div class="bar"></div>
       <div class="bar"></div>
     </div>
+    {{/if}}
     <div class="offcanvas offcanvas-end " data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions"
       aria-labelledby="offcanvasWithBothOptionsLabel">
       <div class="offcanvas-header position-relative">
@@ -116,7 +236,7 @@
           <img class="logimgside" src="https://i.ibb.co/CQ3n2k8/logo-kala.png" width="500px" alt="" srcset="">
         </div>
 
-        
+
         {{!-- <i class="bi bi-arrow-right-circle-fill" data-bs-dismiss="offcanvas" aria-label="Close"></i> --}}
         {{!-- <button type="button" class="btn-arrow" data-bs-dismiss="offcanvas" aria-label="Close"></button> --}}
       </div>
@@ -142,21 +262,28 @@
           </li>
 
         </ul>
-        
+
       </div>
       <div class="footer">
-          <div class="signup">
-            <a href="/signup" class="btn btnSi" role="button" aria-pressed="true">SIGN UP</a>
-          </div>
+        <div class="signup">
+          <a href="/signup" class="btn btnSi" role="button" aria-pressed="true">SIGN UP</a>
         </div>
+      </div>
     </div>
   </div>
 </nav>
+
 
 <script>
   function toggleNav() {
     const toggleButton = document.querySelector('.toggle-button');
     toggleButton.classList.toggle('open');
+  }
+
+  function hideSidebar() {
+    const sidebar= document.querySelector('.layoutSidebar');
+    sidebar.classList.toggle('hide');
+    console.log('hide');
   }
 
 </script>
