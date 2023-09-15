@@ -1,45 +1,60 @@
 <style>
+<<<<<<< HEAD
   
+=======
+
+>>>>>>> 86fc211 (content space)
 </style>
 
 {{#if dashboard}}
-<nav class="navbar">
-  <div class="col-md-2 layoutSidebar">
-    <div class="sidebarButtons d-flex">
-      <div class="toggle-bar" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions"
-        aria-controls="offcanvasWithBothOptions">
-        <i class="fas fa-bars smHide hideable"></i>
+<div class="row dashPage ">
+  <nav class="col-2">
+    <div class="  layoutSidebar hideNav">
+      <div class="sidebarButtons d-flex">
+        <div class="toggle-bar" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions"
+          aria-controls="offcanvasWithBothOptions">
+          <i class="fas fa-bars smHide hideable d-none"></i>
+        </div>
+        <a href="/"><i class="fas fa-home smHide hideable d-none"></i></a>
+        <div class="flex-grow-1 "> </div>
+        <i class="fas fa-close smHide hideable d-none" onclick="hideSidebar()"></i>
+        <i class="fas fa-bars openNav " onclick="hideSidebar()"></i>
       </div>
-      <a href="/"><i class="fas fa-home smHide hideable"></i></a>
-      <div class="flex-grow-1 "> </div>
-      <i class="fas fa-close smHide hideable" onclick="hideSidebar()"></i>
-      <i class="fas fa-bars openNav d-none" onclick="hideSidebar()"></i>
-    </div>
 
-    <div class="sidebarContents d-flex align-items-center">
-      <div class="col-md-12 navitemsbar">
-        <ul class="nav flex-column navbarMenue">
-          <li class="nav-item">
-            <a class="nav-link text-left active" href="/">DASHBOARD</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link text-left" href="/dashboard/profile"></i>LEADERBOARD</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link text-left" href="/dashboard/notifications">RESULT</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link text-left" href="/dashboard/settings">HOUSE BASED RESULT</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link text-left" href="/dashboard/logout">SCHEDULE</a>
-          </li>
-        </ul>
+      <div class="sidebarContents d-flex align-items-center">
+        <div class="col-md-12 navitemsbar">
+          <ul class="nav flex-column navbarMenue hideMenue">
+            <li class="nav-item">
+              <a class="nav-link text-left active" href="/">DASHBOARD</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-left" href="/dashboard/leaderboard"></i>LEADERBOARD</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-left" href="/dashboard/notifications">RESULT</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-left" href="/dashboard/settings">HOUSE BASED</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-left" href="/dashboard/logout">SCHEDULE</a>
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
+  </nav>
+
+  <div class="hideModePage hidePage">
+    {{{body}}}
   </div>
-</nav>
+
+</div>
 {{else}}
+<div class="homePage">
+  
+  {{{body}}}
+</div>
 <nav class="navbar fixed-top">
   <div class="container-fluid">
 
@@ -55,6 +70,7 @@
       <div class="bar"></div>
       <div class="bar"></div>
     </div>
+    
     {{/if}}
     <div class="offcanvas offcanvas-end " data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions"
       aria-labelledby="offcanvasWithBothOptionsLabel">
@@ -103,6 +119,7 @@
 </nav>
 
 
+
 <script>
   function toggleNav() {
     const toggleButton = document.querySelector('.toggle-button');
@@ -114,14 +131,20 @@
     const navbarMenue = document.querySelector('.navbarMenue');
     const navbarButtons = document.querySelectorAll('.hideable');
     const openNav = document.querySelector('.openNav');
+    const page = document.querySelector('.hideModePage');
+    const sideSpace = document.querySelector('.sideSpace');
 
     sidebar.classList.toggle('hideNav');
     navbarMenue.classList.toggle('hideMenue');
     navbarButtons.forEach(button => button.classList.toggle('d-none'));
     openNav.classList.toggle('d-none');
+    page.classList.toggle('col-10');
+    page.classList.toggle('hidePage');
+    sideSpace.classList.toggle('sideSpace-decre');
     console.log('hide');
+    
   }
 
-  
+
 
 </script>
