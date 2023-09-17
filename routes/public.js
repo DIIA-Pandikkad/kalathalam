@@ -7,7 +7,19 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/dashboard', function(req, res, next) {
-  res.render('users/public/dashboard', { title: 'About', dashboard:true });
+  res.render('users/public/dashboard', {  dashboard:true });
+});
+
+router.get('/dashboard/results', function(req, res, next) {
+  var results = [
+    {CCode: 84, CName: 'John', Program: 'Song Arab',PCode: 'SS10', pos: 1, grade: 'A', score: 10},
+    {CCode: 84, CName: 'John', Program: 'Song Arab',PCode: 'SS10', pos: 2, grade: 'A', score: 9},
+    {CCode: 84, CName: 'John', Program: 'Song Arab',PCode: 'SS10', pos: 3, grade: 'A', score: 8},
+    {CCode: 84, CName: 'John', Program: 'Song Arab',PCode: 'SS10', pos: 4, grade: 'A', score: 7},
+    {CCode: 84, CName: 'John', Program: 'Song Arab',PCode: 'SS10', pos: 5, grade: 'A', score: 6},
+    {CCode: 84, CName: 'John', Program: 'Song Arab',PCode: 'SS10', pos: 6, grade: 'A', score: 5},
+  ];
+  res.render('users/public/results', {  dashboard:true,  results: results });
 });
 
 router.get('/demo', function(req, res, next) {

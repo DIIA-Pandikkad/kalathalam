@@ -25,13 +25,13 @@
         <div class="col-md-12 navitemsbar">
           <ul class="nav flex-column navbarMenue hideMenue">
             <li class="nav-item">
-              <a class="nav-link text-left active" href="/">DASHBOARD</a>
+              <a class="nav-link text-left active" href="/dashboard">DASHBOARD</a>
             </li>
             <li class="nav-item">
               <a class="nav-link text-left" href="/dashboard/leaderboard"></i>LEADERBOARD</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link text-left" href="/dashboard/notifications">RESULT</a>
+              <a class="nav-link text-left" href="/dashboard/results">RESULT</a>
             </li>
             <li class="nav-item">
               <a class="nav-link text-left" href="/dashboard/settings">HOUSE BASED</a>
@@ -46,13 +46,21 @@
   </nav>
 
   <div class="hideModePage hidePage">
-    {{{body}}}
+    <div class="row">
+      <div class="col contentSpace ">
+        <div class="row g-3 container ">
+          {{{body}}}
+        </div>
+      </div>
+      <div class="col-2 sideSpace">
+      </div>
+    </div>
   </div>
 
 </div>
 {{else}}
 <div class="homePage">
-  
+
   {{{body}}}
 </div>
 <nav class="navbar fixed-top">
@@ -70,7 +78,7 @@
       <div class="bar"></div>
       <div class="bar"></div>
     </div>
-    
+
     {{/if}}
     <div class="offcanvas offcanvas-end " data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions"
       aria-labelledby="offcanvasWithBothOptionsLabel">
@@ -142,7 +150,7 @@
     page.classList.toggle('hidePage');
     sideSpace.classList.toggle('sideSpace-decre');
     console.log('hide');
-    
+
   }
 
 

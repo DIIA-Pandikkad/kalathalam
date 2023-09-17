@@ -1,0 +1,38 @@
+<div class="col-12">
+    <h2>Results</h2>
+    <div class="dashboard_box">
+        <div class="row">
+            <div class="col-12">
+                {{#each results}}
+                <h1>{{this.Program}}</h1>
+                {{/each}}
+                <div class="table-responsive">
+                    <table class="table table-striped table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Si No</th>
+                                <th>Ad No</th>
+                                <th>Contestent Name</th>
+                                <th>Position</th>
+                                <th>Grade</th>
+                                <th>Score</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {{#each results}}
+                            <tr>
+                                <td></td>    
+                                <td>{{this.CCode}}</td>
+                                <td>{{this.CName}}</td>
+                                <td>{{this.pos}}</td>
+                                <td>{{this.grade}}</td>
+                                <td>{{this.score}}</td>
+                            </tr>
+                            {{/each}}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
