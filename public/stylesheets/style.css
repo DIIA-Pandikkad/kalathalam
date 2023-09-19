@@ -254,6 +254,7 @@ p {
   font-size: large;
 }
 
+<<<<<<< HEAD
 .navbar {
   padding-left: 30px;
   padding-right: 30px;
@@ -462,3 +463,8 @@ p {
   transition: 0.3s;
 }
 }
+=======
+body {
+  overflow-x: hidden;
+}
+>>>>>>> 41fd8e0 (result page  updates)
