@@ -11,6 +11,9 @@ var publicRouter = require('./routes/public');
 
 var app = express();
 
+var db = require('./config/connection')
+
+
 // view engine setup\
 app.use(express.static(__dirname + '/public'));
 app.set('views', path.join(__dirname, 'views'));
@@ -28,6 +31,9 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+
+var db = require('./config/connection')
+const hbs  = require("express-handlebars")
 
 app.use('/admin', ctrlRouter);
 app.use('/leader', leadersRouter);
