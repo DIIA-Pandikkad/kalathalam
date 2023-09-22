@@ -22,8 +22,10 @@
         padding: 20px;
     }
 
-    .first-badge, .second-badge, .third-badge {
-        
+    .first-badge,
+    .second-badge,
+    .third-badge {
+
         color: #fff;
         font-size: 15px;
         font-weight: bold;
@@ -66,20 +68,45 @@
                         </tbody>
                     </table>
                 </div> --}}
-
+                
                 <div class="row g-3">
                     {{#each results.data}}
                     <div class="col-md-4 col-lg-3 col-sm-6 text-center">
                         <div class="result-card position-relative">
-                            <span
-                                style="background-color: goldenrod;" class="position-absolute top-0 start-100 translate-middle badge rounded-pill first-badge visually-hidden">1<sup>st</sup>
-                                <span class="visually-hidden">Rank</span></span>
-                            <span
-                                style="background-color: silver;" class="position-absolute top-0 start-100 translate-middle badge rounded-pill second-badge visually-hidden">2<sup>nd</sup>
-                                <span class="visually-hidden">Rank</span></span>
-                            <span
-                                style="background-color: #CD7F32;" class="position-absolute top-0 start-100 translate-middle badge rounded-pill third-badge visually-hidden">1<sup>rd</sup>
-                                <span class="visually-hidden">Rank</span></span>
+                            
+                            {{!-- {{#if first}}
+                            <span style="background-color: goldenrod;"
+                                class="position-absolute top-0 start-100 translate-middle badge rounded-pill first-badge">1<sup>st</sup><span
+                                    class="visually-hidden">Rank</span></span>
+                            <style>
+                                .result-card {
+                                    background-color: gold;
+                                }
+                            </style>
+                            {{else}}
+                            {{#if second}}
+                            <span style="background-color: silver;"
+                                class="position-absolute top-0 start-100 translate-middle badge rounded-pill second-badge">2<sup>nd</sup><span
+                                    class="visually-hidden">Rank</span></span>
+                            {{else}}
+                            {{#if third}}
+                            <span style="background-color: #CD7F32;"
+                                class="position-absolute top-0 start-100 translate-middle badge rounded-pill third-badge">3<sup>rd</sup><span
+                                    class="visually-hidden">Rank</span></span>
+                            {{/if}}
+                            {{/if}}
+                            {{/if}} --}}
+
+                            <span style="background-color: goldenrod;"
+                                class="position-absolute top-0 start-100 translate-middle badge rounded-pill first-badge visually-hidden">1<sup>st</sup><span
+                                    class="visually-hidden">Rank</span></span>
+                            <span style="background-color: silver;"
+                                class="position-absolute top-0 start-100 translate-middle badge rounded-pill second-badge visually-hidden">2<sup>nd</sup><span
+                                    class="visually-hidden">Rank</span></span>
+                            <span style="background-color: #CD7F32;"
+                                class="position-absolute top-0 start-100 translate-middle badge rounded-pill third-badge visually-hidden">3<sup>rd</sup><span
+                                    class="visually-hidden">Rank</span></span>  
+                            
                             <div class="result-card-header ">
 
                             </div>
@@ -91,15 +118,15 @@
 
 
                                 <h3>{{this.CName}}</h3>
-                                
+
                                 <p id="myInput">10</p>
-                                <h1 class="pos">{{this.pos}}</h1>
+                                <h1 onload="position()" class="pos">{{this.pos}}</h1>
                             </div>
                         </div>
                     </div>
                     {{/each}}
                 </div>
-                
+
             </div>
         </div>
     </div>
@@ -137,19 +164,7 @@
     window.onload = function () {
         position();
     }; --}}
-
-    var posInputs = document.querySelectorAll(".pos");
-        posInputs.forEach(function (posInput) {
-                var inputValue = posInput.textContent;
-                console.log(inputValue);
-            });
-        var hasValueOne = false;
-            for (var i = 0; i < posInputs.length; i++) {
-                var posInput = posInputs[i];
-                if (posInput.textContent === '1') {
-                    var firstBadge = document.querySelector('.first-badge');
-                    firstBadge.classList.remove('visually-hidden');
-                    if (posInput.textContent === '2') {
+    {{!-- if (posInput.textContent === '2') {
                         var secondBadge = document.querySelector('.second-badge');
                         secondBadge.classList.remove('visually-hidden');
                         if (posInput.textContent === '3') {
@@ -158,13 +173,40 @@
                             break;
                         }
 
-                    }
+                    } --}}
+    
+    var posInputs = document.querySelectorAll(".pos");
+    posInputs.forEach(function (posInput) {
+        var inputValue = posInput.textContent;
+        console.log(inputValue);
+    });
 
+    var hasValueOne = false;
+    for (var i = 0; i < posInputs.length; i++) {
+        var posInput = posInputs[i];
+        if (posInput.textContent === '2') {
+            var firstBadge = document.querySelector('.second-badge');
+            firstBadge.classList.remove('visually-hidden');
+            console.log('1 yes')
+            if(posInput.textContent === '2') {
+                var secondBadge = document.querySelector('.second-badge');
+                secondBadge.classList.remove('visually-hidden');
+                console.log('2 yes')
+                if(posInput.textContent === '3') {
+                    var thirdBadge = document.querySelector('.third-badge');
+                    thirdBadge.classList.remove('visually-hidden');
+                    console.log('3 yes')
+                    break;
                 }
-            console.log(hasValueOne);
-        {{!-- if (hasValueOne) {
-                var firstBadge = document.querySelector('.first-badge');
-                firstBadge.classList.remove('visually-hidden');
-            } --}}
+            }
+            
+        }
+    }
+    console.log(hasValueOne);
+    if (hasValueOne) {
+        
+    }
+
+            
     
 </script>

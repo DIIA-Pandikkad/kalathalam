@@ -1,5 +1,6 @@
 var express = require('express');
 var router = express.Router();
+var Handlebars = require('handlebars');
 
 /* GET home page. */
 router.get('/', function (req, res, next) {
@@ -11,16 +12,19 @@ router.get('/dashboard', function (req, res, next) {
 });
 
 router.get('/dashboard/results', function (req, res, next) {
+  Handlebars.registerHelper('ifEquals', function(arg1, arg2, options) {
+    return (arg1 === arg2) ? options.fn(this) : options.inverse(this);
+  });
   var results = [
     {
       ProgramN: 'Song Arab',
       ProgramC: 'SS10',
-      data: [{ CCode: 84, CName: 'John', Program: 'Song Arab', PCode: 'SS10', pos: 1, grade: 'A', score: 10 },
-      { CCode: 84, CName: 'John', Program: 'Song Arab', PCode: 'SS10', pos: 2, grade: 'A', score: 9 },
-      { CCode: 84, CName: 'John', Program: 'Song Arab', PCode: 'SS10', pos: 3, grade: 'A', score: 8 },
-      { CCode: 84, CName: 'John', Program: 'Song Arab', PCode: 'SS10', pos: 4, grade: 'A', score: 7 },
-      { CCode: 84, CName: 'John', Program: 'Song Arab', PCode: 'SS10', pos: 5, grade: 'A', score: 6 },
-      { CCode: 84, CName: 'John', Program: 'Song Arab', PCode: 'SS10', pos: 6, grade: 'A', score: 5 }]
+      data: [{ CCode: 84, CName: 'John', Program: 'Song Arab', PCode: 'SS10', pos: 1, grade: 'A', score: 10, first: true },
+      { CCode: 84, CName: 'John', Program: 'Song Arab', PCode: 'SS10', pos: 2, grade: 'A', score: 9, second: true },
+      { CCode: 84, CName: 'John', Program: 'Song Arab', PCode: 'SS10', pos: 3, grade: 'A', score: 8, third: true },
+      { CCode: 84, CName: 'John', Program: 'Song Arab', PCode: 'SS10', pos: 4, grade: 'A', score: 7,  },
+      { CCode: 84, CName: 'John', Program: 'Song Arab', PCode: 'SS10', pos: 5, grade: 'A', score: 6,  },
+      { CCode: 84, CName: 'John', Program: 'Song Arab', PCode: 'SS10', pos: 6, grade: 'A', score: 5,  }]
     }]
 
     
