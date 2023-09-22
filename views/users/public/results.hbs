@@ -1,16 +1,50 @@
+<style>
+    .result-card {
+        width: 100%;
+        height: 100%;
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0px 0px 10px 0px #0000001a;
+        padding: 10px;
+    }
+
+    .card-image {
+        width: 100%;
+        height: 100%;
+        border-radius: 100%;
+        border: 1px solid #0000001a;
+    }
+
+    .card-image-div {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+    }
+
+    .first-badge, .second-badge, .third-badge {
+        
+        color: #fff;
+        font-size: 15px;
+        font-weight: bold;
+        padding: 10px;
+        border-radius: 100%;
+
+    }
+</style>
 <div class="col-12">
     <h2>Results</h2>
     <div class="dashboard_box">
         <div class="row">
             <div class="col-12">
-                
+
                 <h1>{{results.ProgramC}} {{results.ProgramN}}</h1>
-                
-                <div class="table-responsive">
+
+                {{!-- <div class="table-responsive">
                     <table class="table table-striped table-bordered">
                         <thead>
                             <tr>
-                                
+
                                 <th>Ad No</th>
                                 <th>Contestent Name</th>
                                 <th>Position</th>
@@ -21,7 +55,7 @@
                         <tbody>
                             {{#each results.data}}
                             <tr>
-                                  
+
                                 <td>{{this.CCode}}</td>
                                 <td>{{this.CName}}</td>
                                 <td>{{this.pos}}</td>
@@ -31,9 +65,106 @@
                             {{/each}}
                         </tbody>
                     </table>
+                </div> --}}
+
+                <div class="row g-3">
+                    {{#each results.data}}
+                    <div class="col-md-4 col-lg-3 col-sm-6 text-center">
+                        <div class="result-card position-relative">
+                            <span
+                                style="background-color: goldenrod;" class="position-absolute top-0 start-100 translate-middle badge rounded-pill first-badge visually-hidden">1<sup>st</sup>
+                                <span class="visually-hidden">Rank</span></span>
+                            <span
+                                style="background-color: silver;" class="position-absolute top-0 start-100 translate-middle badge rounded-pill second-badge visually-hidden">2<sup>nd</sup>
+                                <span class="visually-hidden">Rank</span></span>
+                            <span
+                                style="background-color: #CD7F32;" class="position-absolute top-0 start-100 translate-middle badge rounded-pill third-badge visually-hidden">1<sup>rd</sup>
+                                <span class="visually-hidden">Rank</span></span>
+                            <div class="result-card-header ">
+
+                            </div>
+                            <div class="result-card-body">
+                                <div class="card-image-div">
+                                    <img class="card-image" src="/images/84.jpg" alt="" srcset="">
+                                </div>
+
+
+
+                                <h3>{{this.CName}}</h3>
+                                
+                                <p id="myInput">10</p>
+                                <h1 class="pos">{{this.pos}}</h1>
+                            </div>
+                        </div>
+                    </div>
+                    {{/each}}
                 </div>
                 
             </div>
         </div>
     </div>
 </div>
+
+<script>
+    
+    {{!-- function position() {
+                var x = document.querySelector(".pos").value;
+                var firstBadge = document.querySelector(".first-badge");
+                console.log(x);
+                if (x == 1) {
+                    firstBadge.classList.toggle("visually-hidden");
+                }
+            }
+
+            window.onload = function () {
+                position();
+            };  --}}
+    {{!-- function position() {
+        var posInput = document.querySelector(".pos");
+        console.log(posInput); // log the input element to the console
+        var x = posInput.value;
+        var firstBadge = document.querySelector(".first-badge");
+        console.log(x);
+        var inputElement = document.querySelector(".myInput");
+        var inputValue = inputElement.value;
+        console.log(inputValue);
+        if (x == 1) {
+            firstBadge.classList.toggle("visually-hidden");
+            
+        }
+    }
+
+    window.onload = function () {
+        position();
+    }; --}}
+
+    var posInputs = document.querySelectorAll(".pos");
+        posInputs.forEach(function (posInput) {
+                var inputValue = posInput.textContent;
+                console.log(inputValue);
+            });
+        var hasValueOne = false;
+            for (var i = 0; i < posInputs.length; i++) {
+                var posInput = posInputs[i];
+                if (posInput.textContent === '1') {
+                    var firstBadge = document.querySelector('.first-badge');
+                    firstBadge.classList.remove('visually-hidden');
+                    if (posInput.textContent === '2') {
+                        var secondBadge = document.querySelector('.second-badge');
+                        secondBadge.classList.remove('visually-hidden');
+                        if (posInput.textContent === '3') {
+                            var thirdBadge = document.querySelector('.third-badge');
+                            thirdBadge.classList.remove('visually-hidden');
+                            break;
+                        }
+
+                    }
+
+                }
+            console.log(hasValueOne);
+        {{!-- if (hasValueOne) {
+                var firstBadge = document.querySelector('.first-badge');
+                firstBadge.classList.remove('visually-hidden');
+            } --}}
+    
+</script>
