@@ -12,9 +12,7 @@ router.get('/dashboard', function (req, res, next) {
 });
 
 router.get('/dashboard/results', function (req, res, next) {
-  Handlebars.registerHelper('ifEquals', function(arg1, arg2, options) {
-    return (arg1 === arg2) ? options.fn(this) : options.inverse(this);
-  });
+  
   var results = [
     {
       ProgramN: 'Song Arab',
@@ -32,6 +30,7 @@ router.get('/dashboard/results', function (req, res, next) {
   console.log(results[0]);
   res.render('users/public/results', { dashboard: true, results: results[0] });
 });
+
 
 
 router.get('/demo', function (req, res, next) {
