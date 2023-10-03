@@ -57,7 +57,8 @@ router.get('/dashboard/results', function (req, res, next) {
     
     
   console.log(results[0]);
-  res.render('users/public/results', { dashboard: true, results: results[0] });
+  var controller=false;
+  res.render('users/public/results', { dashboard: true, results: results[0], controller:controller });
 });
 
 

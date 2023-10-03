@@ -54,10 +54,11 @@
 <div class="d-flex" id="wrapper">
   <!-- Sidebar -->
   <div class="bg-white" id="sidebar-wrapper">
-    <div class="sidebar-heading text-center py-4 primary-text fs-4 fw-bold text-uppercase border-bottom"><i
-        class="fas fa-user-secret me-2"></i>Codersbite</div>
+    <div class="sidebar-heading text-center py-4 primary-text fs-4 fw-bold text-uppercase border-bottom">
+      <img class="logoImg" src="https://i.ibb.co/D9GWzT5/LOGO-P.png" alt="LOGO-P" border="0">
+    </i></div>
     <div class="list-group list-group-flush my-3">
-      <a href="/dashboard" id="dashboard" class="list-group-item list-group-item-action bg-transparent second-text active"><i
+      <a href="/dashboard" id="dashboard" class="list-group-item list-group-item-action bg-transparent second-text active fw-bold"><i
           class="fas fa-tachometer-alt me-2"></i>DASHBOARD</a>
       <a href="/dashboard/leaderboard"  class="list-group-item list-group-item-action bg-transparent second-text fw-bold"><i
           class="fas fa-chart-simple me-2"></i>LEADERBOARD</a>
@@ -85,7 +86,7 @@
         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-
+      {{#if controller}}
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
           <li class="nav-item dropdown">
@@ -101,6 +102,7 @@
           </li>
         </ul>
       </div>
+      {{/if}}
     </nav>
 
     <div class="container-fluid px-4">
