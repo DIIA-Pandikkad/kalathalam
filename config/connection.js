@@ -1,28 +1,39 @@
-const { MongoClient } = require('mongodb');
+const { MongoClient } = require("mongodb");
 
-const uri = 'mongodb://localhost:27017/kalathalam';
-const client = new MongoClient(uri);
+const state = {
+  db: null,
+};
 
-async function connect() {
+// mongodb connection string
+const url = "mongodb://localhost:27017";
+// database name
+const dbName = "kalathalam";
+
+// create a new mongodb client object
+const client = new MongoClient(url);
+
+// function to establish mongodb connection
+const connect = async (cb) => {
   try {
+    // connecting to mongodb
     await client.connect();
-    console.log('Connected to MongoDB');
-
-    const db = client.db();
-    const collection = db.collection('mycollection');
-
-    // insert a new document
-    const result = await collection.insertOne({ name: 'John Doe' });
-    console.log(result);
-
-    // find all documents
-    const documents = await collection.find().toArray();
-    console.log(documents);
-  } catch (error) {
-    console.error(error);
+    // setting up database name to the connected client
+    const db = client.db(dbName);
+    // setting up database name to the state
+    state.db = db;
+    // callback after connected
+    return cb();
+  } catch (err) {
+    // callback when an error occurs
+    return cb(err);
   }
-}
+};
+
+// function to get the database instance
+const get = () => state.db;
+
+// exporting functions
 module.exports = {
-  connect
-  
+  connect,
+  get,
 };
