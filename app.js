@@ -10,6 +10,7 @@ var leadersRouter = require('./routes/leaders');
 var publicRouter = require('./routes/public');
 
 var app = express();
+var db = require('./config/connection')
 
 // view engine setup\
 app.use(express.static(__dirname + '/public'));
@@ -28,6 +29,14 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+
+db.connect((err)=>{
+  if(err)
+  console.log('Error'+err )
+  else
+  console.log('Database Connected');
+  
+})
 
 app.use('/admin', ctrlRouter);
 app.use('/leader', leadersRouter);

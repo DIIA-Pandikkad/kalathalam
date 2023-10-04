@@ -6,4 +6,8 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: 'Crtl',ctrl:true });
 });
 
+router.get('/auth', function(req, res, next) {
+  res.render('users/ctrl-room/ctrl-login', { dashboard: false });
+});
+
 module.exports = router;
