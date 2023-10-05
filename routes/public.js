@@ -8,7 +8,11 @@ router.get('/', function (req, res, next) {
 });
 
 router.get('/dashboard', function (req, res, next) {
+  if (req.session.loggedIn) {
+    res.render('users/public/dashboard', { dashboard: true, user: req.session.user });
+  } else {
   res.render('users/public/dashboard', { dashboard: true });
+  }
 });
 
 router.get('/dashboard/results', function (req, res, next) {
@@ -58,7 +62,7 @@ router.get('/dashboard/results', function (req, res, next) {
     
   console.log(results[0]);
   var controller=false;
-  res.render('users/public/results', { dashboard: true, results: results[0], controller:controller });
+  res.render('users/public/results', { dashboard: true, results: results[0], controller:controller ,user: req.session.user});
 });
 
 

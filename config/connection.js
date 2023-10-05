@@ -1,11 +1,11 @@
-const { MongoClient } = require("mongodb");
+const { MongoClient } = require("mongodb")
 
 const state = {
   db: null,
 };
 
 // mongodb connection string
-const url = "mongodb://localhost:27017";
+const url = "mongodb://0.0.0.0:27017";
 // database name
 const dbName = "kalathalam";
 

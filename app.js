@@ -11,6 +11,8 @@ var publicRouter = require('./routes/public');
 
 var app = express();
 var db = require('./config/connection')
+var session=require('express-session')
+var fileUpload = require('express-fileupload')
 
 // view engine setup\
 app.use(express.static(__dirname + '/public'));
@@ -29,6 +31,8 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(session({secret:"Key"}))
+app.use(fileUpload())
 
 db.connect((err)=>{
   if(err)
