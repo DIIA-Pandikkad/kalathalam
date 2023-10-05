@@ -1,54 +1,68 @@
 <style>
+  .ppimg {
+    width: 30px;
+    height: 100%;
+    border-radius: 5px;
+  }
 
-    .ppimg {
-        width: 30px;
-        height: 100%;
-        border-radius: 5px;
-    }
-
-    .ppimg:hover {
-        transform: scale(5);
-		    z-index: 2;
-        box-shadow: inset 0 0 0 1000px rgba(255, 255, 255, 0.1);
-    }
-
+  .ppimg:hover {
+    transform: scale(5);
+    z-index: 2;
+    box-shadow: inset 0 0 0 1000px rgba(255, 255, 255, 0.1);
+  }
 </style>
 <div class="row my-5">
-        <h3 class="fs-4 mb-3">Results</h3>
-        <div class="col">
-          <table class="table table-striped bg-white rounded shadow-sm  table-hover">
-            <thead>
-              <tr>
-               
-                <th scope="col">Photo</th>
-                <th scope="col">CCode</th>
-                <th scope="col">CName</th>
-                <th scope="col">Pos</th>
-                <th scope="col">Grade</th>
-                <th scope="col">Score</th>
-              </tr>
-            </thead>
-            <tbody>
-              {{#each results.data}}
-              <tr>
-                
-                <td scope="row" class="text-center"><img class="ppimg"  src="{{imageAdd}}" alt=""></td>
-                <td>{{CCode}}</td>
-                <td>{{CName}}</td>
-                <td>{{pos}}</td>
-                <td>{{grade}}</td>
-                <td>{{score}}</td>
-              </tr>
-              {{/each}}
-            </tbody>
-          </table>
-        </div>
+  <form action="/result-search" method="GET">
+    <div class="row g-2">
+      <div class="col-md-3">
+        <input type="text" placeholder="SEARCH BY PROGRAM CODE" class="form-control" name="pcode" id="pcode">
       </div>
+      <div class="col-md-3">
+        <button type="submit" class="btn btn-primary">Search</button>
+      </div>
+    </div>
+  </form>
+</div>
+<div class="row my-5">
+  
+  <h3>{{result.pcode}} {{result.pname}}</h3>
+  <br><br>
+  {{#if result}}
+  <div class="col">
+    <table class="table table-striped bg-white rounded shadow-sm  table-hover">
+      <thead>
+        <tr>
+
+          <th scope="col">Photo</th>
+          <th scope="col">Candidate Code</th>
+          <th scope="col">Candidate Name</th>
+          <th scope="col">Pos</th>
+          <th scope="col">Grade</th>
+          <th scope="col">Score</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{#each result.data}}
+        <tr>
+
+          <td scope="row" class="text-center"><img class="ppimg" src="{{imageAdd}}" alt=""></td>
+          <td>{{ccode}}</td>
+          <td>{{cname}}</td>
+          <td>{{pos}}</td>
+          <td>{{grade}}</td>
+          <td>{{score}}</td>
+        </tr>
+        {{/each}}
+      </tbody>
+    </table>
+  </div>
+  {{/if}}
+</div>
 
 <script>
-    var result = document.getElementById("result");
-    var dashboard = document.getElementById("dashboard");
+  var result = document.getElementById("result");
+  var dashboard = document.getElementById("dashboard");
 
-    result.classList.add("active");
-    dashboard.classList.remove("active");
+  result.classList.add("active");
+  dashboard.classList.remove("active");
 </script>

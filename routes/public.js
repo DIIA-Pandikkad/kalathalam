@@ -1,6 +1,8 @@
 var express = require('express');
 var router = express.Router();
 var Handlebars = require('handlebars');
+var userHelpers = require('../helpers/userhelper');
+const { param } = require('./public');
 
 /* GET home page. */
 router.get('/', function (req, res, next) {
@@ -9,60 +11,25 @@ router.get('/', function (req, res, next) {
 
 router.get('/dashboard', function (req, res, next) {
   if (req.session.loggedIn) {
-    res.render('users/public/dashboard', { dashboard: true, user: req.session.user });
+    res.render('users/public/dashboard', {title:'Dashboard', dashboard: true, user: req.session.user });
   } else {
-  res.render('users/public/dashboard', { dashboard: true });
+  res.render('users/public/dashboard', {title:'Dashboard', dashboard: true });
   }
 });
 
 router.get('/dashboard/results', function (req, res, next) {
-  
-  var results = [
-    {
-      ProgramN: 'Song Arab',
-      ProgramC: 'SS10',
-      data: [
-        { 
-          imageAdd:'https://i.ibb.co/cvwkGWy/photo-2022-09-11-15-08-59.jpg',
-          CCode: 84, 
-          CName: 'John', 
-          Program: 'Song Arab', 
-          PCode: 'SS10', 
-          pos: 1, 
-          grade: 'A', 
-          score: 10, 
-          first: true 
-        },
-        { 
-          imageAdd:'https://i.ibb.co/cvwkGWy/photo-2022-09-11-15-08-59.jpg',
-          CCode: 84, 
-          CName: 'John', 
-          Program: 'Song Arab', 
-          PCode: 'SS10', pos: 2, 
-          grade: 'A', score: 9, 
-          second: true 
-        },
-        { 
-          imageAdd:'https://i.ibb.co/cvwkGWy/photo-2022-09-11-15-08-59.jpg',
-          CCode: 84, 
-          CName: 'John', 
-          Program: 'Song Arab', 
-          PCode: 'SS10', 
-          pos: 3, 
-          grade: 'A', 
-          score: 8, 
-          third: true 
-        },
-        { CCode: 84, CName: 'John', Program: 'Song Arab', PCode: 'SS10', pos: 4, grade: 'A', score: 7, },
-        { CCode: 84, CName: 'John', Program: 'Song Arab', PCode: 'SS10', pos: 5, grade: 'A', score: 6, },
-        { CCode: 84, CName: 'John', Program: 'Song Arab', PCode: 'SS10', pos: 6, grade: 'A', score: 5, }]
-    }]
+  var result = [
 
-    
-    
-  console.log(results[0]);
-  var controller=false;
-  res.render('users/public/results', { dashboard: true, results: results[0], controller:controller ,user: req.session.user});
+  ]
+  res.render('users/public/results', {title:'Results', dashboard: true, result: result, user: req.session.user });
+});
+
+router.get('/result-search', async (req, res) => {
+  const pcode = req.query.pcode;
+  
+  userHelpers.getResult(pcode).then((result) => {
+    res.render('users/public/results', {title:'Results', dashboard: true, result: result, user: req.session.user });
+  })
 });
 
 

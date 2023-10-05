@@ -2,7 +2,6 @@ var express = require('express');
 var router = express.Router();
 var ctrlHelpers = require('../helpers/ctrl-room')
 var fs = require('fs');
-const { log } = require('console');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
