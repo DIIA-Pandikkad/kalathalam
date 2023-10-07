@@ -12,7 +12,7 @@ module.exports = {
     },
     getHouseResult: () => {
         return new Promise(async (resolve, reject) => {
-            let data = await db.get().collection(collection.RESULT_COLLECTION).aggregate([
+            let data =  db.get().collection(collection.RESULT_COLLECTION).aggregate([
                 {
                     $match: {
                         pname: 'SJ1'
@@ -43,7 +43,7 @@ module.exports = {
                 }
             ]).toArray(function (err, result) {
                 if (err) throw err;
-                console.log(result[0].data);
+                console.log(result);
                 resolve(result);
             });
         });

@@ -6,6 +6,7 @@ const state = {
 
 // mongodb connection string
 const url = "mongodb://0.0.0.0:27017";
+// const url = "mongodb+srv://rahmanam90:<NY3RYRQpYnK2KzMI>@cluster0.pomdcox.mongodb.net/";
 // database name
 const dbName = "kalathalam";
 

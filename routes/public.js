@@ -12,8 +12,9 @@ router.get('/', function (req, res, next) {
 router.get('/dashboard', function (req, res, next) {
   
   userHelpers.getHouseResult().then((result) => {
-    res.render('users/public/dashboard', {title:'Dashboard', dashboard: true, result: result });
+    res.render('users/public/dashboard', {title:'Dashboard', dashboard: true, });
   });
+  
   
 });
 
