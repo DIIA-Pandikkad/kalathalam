@@ -10,25 +10,25 @@ router.get('/', function (req, res, next) {
 });
 
 router.get('/dashboard', function (req, res, next) {
-  if (req.session.loggedIn) {
-    res.render('users/public/dashboard', {title:'Dashboard', dashboard: true, user: req.session.user });
-  } else {
-  res.render('users/public/dashboard', {title:'Dashboard', dashboard: true });
-  }
+  
+  userHelpers.getHouseResult().then((result) => {
+    res.render('users/public/dashboard', {title:'Dashboard', dashboard: true, result: result });
+  });
+  
 });
 
 router.get('/dashboard/results', function (req, res, next) {
   var result = [
 
   ]
-  res.render('users/public/results', {title:'Results', dashboard: true, result: result, user: req.session.user });
+  res.render('users/public/results', {title:'Results', dashboard: true, result: result});
 });
 
 router.get('/result-search', async (req, res) => {
   const pcode = req.query.pcode;
   
   userHelpers.getResult(pcode).then((result) => {
-    res.render('users/public/results', {title:'Results', dashboard: true, result: result, user: req.session.user });
+    res.render('users/public/results', {title:'Results', dashboard: true, result: result});
   })
 });
 

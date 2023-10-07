@@ -221,6 +221,7 @@ module.exports = {
                                             ccode: candidate.ccode,
                                             cadno: candidate.adno,
                                             cname: candidate.name,
+                                            house: candidate.house,
                                             pos: resultData[0].result[i].pos,
                                             grade: resultData[0].result[i].grade,
                                             score: resultData[0].result[i].score
