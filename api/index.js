@@ -44,6 +44,7 @@ db.connect((err)=>{
   
 })
 
+
 app.use('/admin', ctrlRouter);
 app.use('/leader', leadersRouter);
 app.use('/', publicRouter);
