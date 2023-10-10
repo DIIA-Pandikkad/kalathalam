@@ -9,6 +9,7 @@ const { v4 } = require('uuid');
 var ctrlRouter = require('./routes/ctrl');
 var leadersRouter = require('./routes/leaders');
 var publicRouter = require('./routes/public');
+var testRouter = require('./routes/test');
 
 var app = express();
 var db = require('./config/connection')
@@ -48,6 +49,7 @@ db.connect((err)=>{
 
 app.use('/admin', ctrlRouter);
 app.use('/leader', leadersRouter);
+app.use('/test', testRouter);
 app.use('/', publicRouter);
 
 //  vercel connecting
