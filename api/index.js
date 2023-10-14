@@ -17,24 +17,24 @@ var session=require('express-session')
 var fileUpload = require('express-fileupload')
 
 // view engine setup\
-app.use(express.static(__dirname + './public'));
-app.set('views', path.join(__dirname, './views'));
+app.use(express.static(__dirname + '../public'));
+app.set('views', path.join(__dirname, '../views'));
 app.set('view engine', 'hbs');
 
 app.engine('hbs',hbs.engine({
   extname:'hbs',
   defaultLayout:'layout',
   // layoutsDir:__dirname+'../views/layout/',
-  layoutsDir:path.join(__dirname,'./views/layout/'),
+  layoutsDir:path.join(__dirname,'../views/layout/'),
   // partialsDir:__dirname+'../views/partials/'
-  partialsDir:path.join(__dirname,'./views/partials/')
+  partialsDir:path.join(__dirname,'../views/partials/')
 }))
 
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, './public')));
+app.use(express.static(path.join(__dirname, '../public')));
 app.use(session({secret:"Key"}))
 app.use(fileUpload())
 
