@@ -12,8 +12,27 @@
   }
 
   body {
-    overflow-x: scroll;
+      {
+        {
+        !-- overflow-x: scroll;
+        --
+      }
+    }
   }
+
+  .img-fluid{
+    border-radius: 5px;
+    margin: 1px 1px 0px 1px;
+  }
+
+  .result-p{
+    font-size: 15px;
+    color: #009d63;
+    margin: 0;
+    padding: 0;
+  }
+
+  
 </style>
 <div class="row my-5">
   <form action="/result-search" method="GET">
@@ -28,12 +47,31 @@
   </form>
 </div>
 <div class="row my-5">
-  
+
   <h3>{{result.pcode}} {{result.pname}}</h3>
   <br><br>
   {{#if result}}
   <div class="col-12">
-    <table class="table table-striped bg-white rounded shadow-sm  table-hover">
+    <div class="row g-3">
+      {{#each result.data}}
+      <div class="col-md-4">
+        <div class="bg-white shadow-sm d-flex justify-content-around align-items-center rounded">
+          <div class="col-sm-4">
+            <img src="{{imageAdd}}" alt="" class="img-fluid">
+          </div>
+          <div class="col-sm-8 p-2">
+            <h5>{{cname}}</h5>
+            <p class="result-p" > Ad NO: <strong>{{cadno}}</strong>
+            <br> House: <strong>{{house}}</strong>
+            <br> Position: <strong>{{pos}}</strong>
+            <br> Grade: <strong>{{grade}}</strong>
+            <br> Points: <strong>{{score}}</strong></p>
+          </div>
+        </div>
+      </div>
+      {{/each}}
+    </div>
+    {{!-- <table class="table table-striped bg-white rounded shadow-sm  table-hover">
       <thead>
         <tr>
 
@@ -51,7 +89,7 @@
         <tr>
 
           <td scope="row" class="text-center"><img class="ppimg" src="{{imageAdd}}" alt=""></td>
-          <td>{{ccode}}</td>
+          <td>{{cadno}}</td>
           <td>{{cname}}</td>
           <td>{{house}}</td>
           <td>{{pos}}</td>
@@ -60,7 +98,7 @@
         </tr>
         {{/each}}
       </tbody>
-    </table>
+    </table> --}}
   </div>
   {{/if}}
 </div>

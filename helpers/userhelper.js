@@ -12,26 +12,12 @@ module.exports = {
     },
     getHouseResult: () => {
         return new Promise(async (resolve, reject) => {
-          let isthere = await db.get().collection(collection.RESULT_COLLECTION).findOne({ 'data.house': 'HAQANA' });
-            console.log('isthere:', isthere);
-          let result = await db.get().collection(collection.RESULT_COLLECTION).aggregate([
-            {
-              $match: {
-                "data.house": 'HAQANA'
-              }
-            }, {
-              $unwind: '$data'
-            }, {
-              $group: {
-                _id: 'HAQANA',
-                totalScore: {
-                  $sum: '$data.score'
-                }
-              }
-            }
-          ]).toArray();
-          console.log('Result:', result);
-          resolve(result[0].totalScore);
+         
+          let results = await db.get().collection(collection.RESULT_COLLECTION).find({
+            'data.house': 'HAQANA'
+          });
+
+            console.log('results:', results[0]);
         });
       }
 }

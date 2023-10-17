@@ -263,7 +263,7 @@ p {
 }
 
 body {
-  overflow-x: hidden;
+  overflow-x: scroll;
 } */
 :root {
   --main-bg-color: #009d63;

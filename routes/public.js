@@ -12,17 +12,10 @@ router.get('/', function (req, res, next) {
 router.get('/dashboard', function (req, res, next) {
   
   // userHelpers.getHouseResult().then((result) => {
-  //   console.log('result:');
-  //   console.log(result);
+    
     res.render('users/public/dashboard', {title:'Dashboard', dashboard: true, });
   // });
-  // userHelpers.getHouseResult()
-  // .then(totalScore => {
-  //   console.log('Total score of HAQANA:', totalScore);
-  // })
-  // .catch(err => {
-  //   console.log(err);
-  // });
+  
   
   
 });
