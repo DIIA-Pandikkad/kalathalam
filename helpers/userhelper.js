@@ -13,11 +13,9 @@ module.exports = {
     getHouseResult: () => {
         return new Promise(async (resolve, reject) => {
          
-          let results = await db.get().collection(collection.RESULT_COLLECTION).find({
-            'data.house': 'HAQANA'
-          });
+          let results = await db.get().collection(collection.RESULT_COLLECTION).find({'data.house':'HAQANA'}).toArray();
 
-            console.log('results:', results[0]);
+            console.log('results:', results[0].data);
         });
       }
 }

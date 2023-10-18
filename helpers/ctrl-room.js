@@ -243,5 +243,220 @@ module.exports = {
             }
 
         })
+    },
+    getHouseResult: () => {
+        return new Promise(async (resolve, reject) => {
+            let results = await db.get().collection(collection.RESULT_COLLECTION).find({ "data.house": "PUKAINAR" }).toArray()
+            console.log(results);
+            resolve(results)
+        })
+    },
+    doHouseResultEntry: (houseDatas) => {
+        return new Promise(async (resolve, reject) => {
+            console.log(houseDatas);
+            var pukainar = [
+                {
+                    houseName: "pukainar",
+                    houseBase: [
+                        {
+                            gained: houseDatas.gained[0],
+                            minus: houseDatas.minus[0],
+                            Tscore: houseDatas.Tscore[0]
+                        }
+                    ]
+                }
+            ]
+            var thongal = [
+                {
+                    houseName: "thongal",
+                    houseBase: [
+                        {
+                            gained: houseDatas.gained[1],
+                            minus: houseDatas.minus[1],
+                            Tscore: houseDatas.Tscore[1]
+                        }
+                    ]
+                }
+            ]
+            var haqana = [
+                {
+                    houseName: "haqana",
+                    houseBase: [
+                        {
+                            gained: houseDatas.gained[2],
+                            minus: houseDatas.minus[2],
+                            Tscore: houseDatas.Tscore[2]
+                        }
+                    ]
+                }
+            ]
+            var murukkam = [
+                {
+                    houseName: "murukkam",
+                    houseBase: [
+                        {
+                            gained: houseDatas.gained[3],
+                            minus: houseDatas.minus[3],
+                            Tscore: houseDatas.Tscore[3]
+                        }
+                    ]
+                }
+            ]
+            let ResultEnter = await db.get().collection(collection.HOUSE_RESULT_COLLECTION).findOne({ houseName: pukainar[0].houseName })
+            if (ResultEnter) {
+                console.log('result already exist');
+                await db.get().collection(collection.HOUSE_RESULT_COLLECTION).updateOne(
+                    { houseName: pukainar[0].houseName },
+                    [
+                        {
+                            $set:
+                            {
+                                houseBase: [
+                                    {
+                                        gained: pukainar[0].houseBase[0].gained,
+                                        minus: pukainar[0].houseBase[0].minus,
+                                        Tscore: pukainar[0].houseBase[0].Tscore
+                                    }
+                                ],
+                                modified: "$$NOW"
+                            }
+                        }
+                    ])
+                await db.get().collection(collection.HOUSE_RESULT_COLLECTION).updateOne(
+                    { houseName: thongal[0].houseName },
+                    [
+                        {
+                            $set:
+                            {
+                                houseBase: [
+                                    {
+                                        gained: thongal[0].houseBase[0].gained,
+                                        minus: thongal[0].houseBase[0].minus,
+                                        Tscore: thongal[0].houseBase[0].Tscore
+                                    }
+                                ],
+                                modified: "$$NOW"
+                            }
+                        }
+                    ])
+                await db.get().collection(collection.HOUSE_RESULT_COLLECTION).updateOne(
+                    { houseName: haqana[0].houseName },
+                    [
+                        {
+                            $set:
+                            {
+                                houseBase: [
+                                    {
+                                        gained: haqana[0].houseBase[0].gained,
+                                        minus: haqana[0].houseBase[0].minus,
+                                        Tscore: haqana[0].houseBase[0].Tscore
+                                    }
+                                ],
+                                modified: "$$NOW"
+                            }
+                        }
+                    ])
+                await db.get().collection(collection.HOUSE_RESULT_COLLECTION).updateOne(
+                    { houseName: murukkam[0].houseName },
+                    [
+                        {
+                            $set:
+                            {
+                                houseBase: [
+                                    {
+                                        gained: murukkam[0].houseBase[0].gained,
+                                        minus: murukkam[0].houseBase[0].minus,
+                                        Tscore: murukkam[0].houseBase[0].Tscore
+                                    }
+                                ],
+                                modified: "$$NOW"
+                            }
+                        }
+                    ])
+                // ,
+                //     {
+                //         houseName: thongal[0].houseName,
+                //         hosueBase: [
+                //             {
+                //                 gained: thongal[0].houseBase[0].gained,
+                //                 minus: thongal[0].houseBase[0].minus,
+                //                 Tscore: thongal[0].houseBase[0].Tscore
+                //             }
+                //         ]
+                //     },
+                //     {
+                //         houseName: haqana[0].houseName,
+                //         houseBase: [
+                //             {
+                //                 gained: haqana[0].houseBase[0].gained,
+                //                 minus: haqana[0].houseBase[0].minus,
+                //                 Tscore: haqana[0].houseBase[0].Tscore
+                //             }
+                //         ]
+                //     },
+                //     {
+                //         houseName: murukkam[0].houseName,
+                //         houseBase: [
+                //             {
+                //                 gained: murukkam[0].houseBase[0].gained,
+                //                 minus: murukkam[0].houseBase[0].minus,
+                //                 Tscore: murukkam[0].houseBase[0].Tscore
+                //             }
+                //         ]
+                //     }
+                console.log('result updated');
+            } else {
+                await db.get().collection(collection.HOUSE_RESULT_COLLECTION).insertMany([
+                    {
+                        houseName: pukainar[0].houseName,
+                        houseBase: [
+                            {
+                                gained: pukainar[0].houseBase[0].gained,
+                                minus: pukainar[0].houseBase[0].minus,
+                                Tscore: pukainar[0].houseBase[0].Tscore
+                            }
+                        ],
+                        modified: "$$NOW"
+                    },
+                    {
+                        houseName: thongal[0].houseName,
+                        houseBase: [
+                            {
+                                gained: thongal[0].houseBase[0].gained,
+                                minus: thongal[0].houseBase[0].minus,
+                                Tscore: thongal[0].houseBase[0].Tscore
+                            }
+                        ],
+                        modified: "$$NOW"
+                    },
+                    {
+                        houseName: haqana[0].houseName,
+                        houseBase: [
+                            {
+                                gained: haqana[0].houseBase[0].gained,
+                                minus: haqana[0].houseBase[0].minus,
+                                Tscore: haqana[0].houseBase[0].Tscore
+                            }
+                        ],
+                        modified: "$$NOW"
+                    },
+                    {
+                        houseName: murukkam[0].houseName,
+                        houseBase: [
+                            {
+                                gained: murukkam[0].houseBase[0].gained,
+                                minus: murukkam[0].houseBase[0].minus,
+                                Tscore: murukkam[0].houseBase[0].Tscore
+                            }
+                        ],
+                        modified: "$$NOW"
+                    }
+                ]).then((data) => {
+                    console.log('result inserted');
+                })
+                console.log('result not exist');
+            }
+            resolve({ status: true })
+        })
     }
 }

@@ -20,10 +20,7 @@
     }
   }
 
-  .img-fluid{
-    border-radius: 5px;
-    margin: 1px 1px 0px 1px;
-  }
+  
 
   .result-p{
     font-size: 15px;
@@ -56,8 +53,8 @@
       {{#each result.data}}
       <div class="col-md-4">
         <div class="bg-white shadow-sm d-flex justify-content-around align-items-center rounded">
-          <div class="col-sm-4">
-            <img src="{{imageAdd}}" alt="" class="img-fluid">
+          <div class="col-sm-4 ps-2">
+            <img src="{{imageAdd}}" alt="" class="p-0 img-thumbnail rounded float-start">
           </div>
           <div class="col-sm-8 p-2">
             <h5>{{cname}}</h5>
