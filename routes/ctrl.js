@@ -135,8 +135,15 @@ router.post('/results', function (req, res, next) {
 router.get('/results/housebase', function (req, res, next) {
   if (req.session.loggedIn) {
     ctrlHelpers.getHouseResult().then((results) => {
-      console.log(results);
-      res.render('users/ctrl-room/house-result-entry', { ctrl: true, user: req.session.user, results: results });
+      console.log(results[0]);
+      res.render('users/ctrl-room/house-result-entry', { 
+        ctrl: true, 
+        user: req.session.user, 
+        pukainar: results[0], 
+        thongal: results[1], 
+        haqana: results[2], 
+        murukkam: results[3] 
+      });
     })
   } else {
     res.redirect('/admin/auth/login')
@@ -148,10 +155,10 @@ router.post('/results/housebase', function (req, res, next) {
   ctrlHelpers.doHouseResultEntry(req.body).then((response) => {
     if (response.status) {
       console.log('Housebase result update success')
-      res.redirect('/admin')
+      res.redirect('/admin/results/housebase')
     } else {
       console.log('Housebase result update failed')
-      res.redirect('/admin')
+      res.redirect('/admin/results/housebase')
     }
   })
 });

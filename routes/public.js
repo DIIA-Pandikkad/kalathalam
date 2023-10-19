@@ -10,28 +10,35 @@ router.get('/', function (req, res, next) {
 });
 
 router.get('/dashboard', function (req, res, next) {
-  
-  userHelpers.getHouseResult().then((result) => {
-    
-    res.render('users/public/dashboard', {title:'Dashboard', dashboard: true, });
+
+  userHelpers.getHouseResult().then((results) => {
+
+    res.render('users/public/dashboard', {
+      title: 'Dashboard',
+      dashboard: true,
+      pukainar: results[0],
+      thongal: results[1],
+      haqana: results[2],
+      murukkam: results[3]
+    });
   });
-  
-  
-  
+
+
+
 });
 
 router.get('/dashboard/results', function (req, res, next) {
   var result = [
 
   ]
-  res.render('users/public/results', {title:'Results', dashboard: true, result: result});
+  res.render('users/public/results', { title: 'Results', dashboard: true, result: result });
 });
 
 router.get('/result-search', async (req, res) => {
   const pcode = req.query.pcode;
-  
+
   userHelpers.getResult(pcode).then((result) => {
-    res.render('users/public/results', {title:'Results', dashboard: true, result: result});
+    res.render('users/public/results', { title: 'Results', dashboard: true, result: result });
   })
 });
 

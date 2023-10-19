@@ -246,9 +246,19 @@ module.exports = {
     },
     getHouseResult: () => {
         return new Promise(async (resolve, reject) => {
-            let results = await db.get().collection(collection.RESULT_COLLECTION).find({ "data.house": "PUKAINAR" }).toArray()
-            console.log(results);
-            resolve(results)
+            let pukainar = await db.get().collection(collection.HOUSE_RESULT_COLLECTION).find({ houseName: "pukainar" }).toArray()
+            let thongal = await db.get().collection(collection.HOUSE_RESULT_COLLECTION).find({ houseName: "thongal" }).toArray()
+            let haqana = await db.get().collection(collection.HOUSE_RESULT_COLLECTION).find({ houseName: "haqana" }).toArray()
+            let murukkam = await db.get().collection(collection.HOUSE_RESULT_COLLECTION).find({ houseName: "murukkam" }).toArray()
+            
+            let houseBaseShow = [
+                pukainar = pukainar[0],
+                thongal = thongal[0],
+                haqana = haqana[0],
+                murukkam = murukkam[0]
+            ]
+            // console.log(houseBaseShow);
+            resolve(houseBaseShow)
         })
     },
     doHouseResultEntry: (houseDatas) => {
@@ -263,7 +273,14 @@ module.exports = {
                             minus: houseDatas.minus[0],
                             Tscore: houseDatas.Tscore[0]
                         }
-                    ]
+                    ],
+                    subJuniorBased: [
+                        {
+                            gained: houseDatas.sjgained[0],
+                            minus: houseDatas.sjminus[0],
+                            Tscore: houseDatas.sjTscore[0]
+                        }
+                    ],
                 }
             ]
             var thongal = [
@@ -275,7 +292,14 @@ module.exports = {
                             minus: houseDatas.minus[1],
                             Tscore: houseDatas.Tscore[1]
                         }
-                    ]
+                    ],
+                    subJuniorBased: [
+                        {
+                            gained: houseDatas.sjgained[1],
+                            minus: houseDatas.sjminus[1],
+                            Tscore: houseDatas.sjTscore[1]
+                        }
+                    ],
                 }
             ]
             var haqana = [
@@ -287,7 +311,14 @@ module.exports = {
                             minus: houseDatas.minus[2],
                             Tscore: houseDatas.Tscore[2]
                         }
-                    ]
+                    ],
+                    subJuniorBased: [
+                        {
+                            gained: houseDatas.sjgained[2],
+                            minus: houseDatas.sjminus[2],
+                            Tscore: houseDatas.sjTscore[2]
+                        }
+                    ],
                 }
             ]
             var murukkam = [
@@ -299,7 +330,14 @@ module.exports = {
                             minus: houseDatas.minus[3],
                             Tscore: houseDatas.Tscore[3]
                         }
-                    ]
+                    ],
+                    subJuniorBased: [
+                        {
+                            gained: houseDatas.sjgained[3],
+                            minus: houseDatas.sjminus[3],
+                            Tscore: houseDatas.sjTscore[3]
+                        }
+                    ],
                 }
             ]
             let ResultEnter = await db.get().collection(collection.HOUSE_RESULT_COLLECTION).findOne({ houseName: pukainar[0].houseName })
@@ -316,6 +354,13 @@ module.exports = {
                                         gained: pukainar[0].houseBase[0].gained,
                                         minus: pukainar[0].houseBase[0].minus,
                                         Tscore: pukainar[0].houseBase[0].Tscore
+                                    }
+                                ],
+                                subJuniorBased: [
+                                    {
+                                        gained: pukainar[0].subJuniorBased[0].gained,
+                                        minus: pukainar[0].subJuniorBased[0].minus,
+                                        Tscore: pukainar[0].subJuniorBased[0].Tscore
                                     }
                                 ],
                                 modified: "$$NOW"
@@ -335,6 +380,13 @@ module.exports = {
                                         Tscore: thongal[0].houseBase[0].Tscore
                                     }
                                 ],
+                                subJuniorBased: [
+                                    {
+                                        gained: thongal[0].subJuniorBased[0].gained,
+                                        minus: thongal[0].subJuniorBased[0].minus,
+                                        Tscore: thongal[0].subJuniorBased[0].Tscore
+                                    }
+                                ],
                                 modified: "$$NOW"
                             }
                         }
@@ -352,6 +404,13 @@ module.exports = {
                                         Tscore: haqana[0].houseBase[0].Tscore
                                     }
                                 ],
+                                subJuniorBased: [
+                                    {
+                                        gained: haqana[0].subJuniorBased[0].gained,
+                                        minus: haqana[0].subJuniorBased[0].minus,
+                                        Tscore: haqana[0].subJuniorBased[0].Tscore
+                                    }
+                                ],
                                 modified: "$$NOW"
                             }
                         }
@@ -367,6 +426,13 @@ module.exports = {
                                         gained: murukkam[0].houseBase[0].gained,
                                         minus: murukkam[0].houseBase[0].minus,
                                         Tscore: murukkam[0].houseBase[0].Tscore
+                                    }
+                                ],
+                                subJuniorBased: [
+                                    {
+                                        gained: murukkam[0].subJuniorBased[0].gained,
+                                        minus: murukkam[0].subJuniorBased[0].minus,
+                                        Tscore: murukkam[0].subJuniorBased[0].Tscore
                                     }
                                 ],
                                 modified: "$$NOW"

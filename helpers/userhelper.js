@@ -12,10 +12,19 @@ module.exports = {
     },
     getHouseResult: () => {
         return new Promise(async (resolve, reject) => {
-         
-          let results = await db.get().collection(collection.RESULT_COLLECTION).find({'data.house':'HAQANA'}).toArray();
-
-            console.log('results:', results[0].data);
-        });
-      }
+            let pukainar = await db.get().collection(collection.HOUSE_RESULT_COLLECTION).find({ houseName: "pukainar" }).toArray()
+            let thongal = await db.get().collection(collection.HOUSE_RESULT_COLLECTION).find({ houseName: "thongal" }).toArray()
+            let haqana = await db.get().collection(collection.HOUSE_RESULT_COLLECTION).find({ houseName: "haqana" }).toArray()
+            let murukkam = await db.get().collection(collection.HOUSE_RESULT_COLLECTION).find({ houseName: "murukkam" }).toArray()
+            
+            let houseBaseShow = [
+                pukainar = pukainar[0],
+                thongal = thongal[0],
+                haqana = haqana[0],
+                murukkam = murukkam[0]
+            ]
+            // console.log(houseBaseShow);
+            resolve(houseBaseShow)
+        })
+    }
 }

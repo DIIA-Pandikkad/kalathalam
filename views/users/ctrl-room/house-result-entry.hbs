@@ -63,56 +63,138 @@
         -webkit-appearance: none;
         margin: 0;
     }
+
+    .carousel-tab {
+
+        background-color: #c1efde;
+        width: fit-content;
+    }
+
+    .carousel-tab p {
+        font-size: 30px;
+        font-weight: 500;
+        color: #009d63;
+        margin: 10px;
+    }
+
+    .time-p{
+        font-size: x-small;
+    }
 </style>
 
 <form action="/admin/results/housebase" method="POST" class="login-form">
 
     <a href="/admin"><i class="fa-solid fa-arrow-left"></i>Back</a>
-    <br><br>
-    <h3>HOUSE RESULT ENTRY</h3>
-    <br>
-    
+    <div class="sec1">
+        <br>
+        <p class="float-end time-p" >Last modified: <strong>{{pukainar.modified}}</strong></p>
+        <br><br>
+        <div class="carousel-tab rounded">
+            <p>HOUSE BASED ENTRY</p>
+        </div>
+        <br>
+        <table class="table table-striped">
+            <thead>
+                <tr>
 
-    <table class="table table-striped">
-        <thead>
-            <tr>
-                
-                <th scope="col">HOUSE NAME</th>
-                <th scope="col">GAINED SCORE</th>
-                <th scope="col">MINUS</th>
-                <th scope="col">TOTAL SCORE</th>
-                
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <th scope="row"><input class="form-control" type="text" value="PUKAINAR" name="houseName" id="houseName" readonly></th>
-                <td><input class="form-control" type="number" value="{{pk.gained}}" name="gained" id="gained"></td>
-                <td><input class="form-control" type="number" value="{{pk.minus}}" name="minus" id="minus"></td>
-                <td><input class="form-control" type="number" value="{{pk.Tscore}}" name="Tscore" id="Tscore"></td>
-            </tr>
-            <tr>
-                <th scope="row"><input class="form-control" type="text" value="THONGAL" name="houseName" id="houseName" readonly></th>
-                <td><input class="form-control" type="number" value="{{tg.gained}}" name="gained" id="gained"></td>
-                <td><input class="form-control" type="number" value="{{tg.minus}}" name="minus" id="minus"></td>
-                <td><input class="form-control" type="number" value="{{tg.Tscore}}" name="Tscore" id="Tscore"></td>
-            </tr>
-            <tr>
-                <th scope="row"><input class="form-control" type="text" value="HAQANA" name="houseName" id="houseName" readonly></th>
-                <td><input class="form-control" type="number" value="{{hq.gained}}" name="gained" id="gained"></td>
-                <td><input class="form-control" type="number" value="{{hq.minus}}" name="minus" id="minus"></td>
-                <td><input class="form-control" type="number" value="{{hq.Tscore}}" name="Tscore" id="Tscore"></td>
-            </tr>
-            <tr>
-                <th scope="row"><input class="form-control" type="text" value="MURUKKAM" name="houseName" id="houseName" readonly></th>
-                <td><input class="form-control" type="number" value="{{mk.gained}}" name="gained" id="gained"></td>
-                <td><input class="form-control" type="number" value="{{mk.minus}}" name="minus" id="minus"></td>
-                <td><input class="form-control" type="number" value="{{mk.Tscore}}" name="Tscore" id="Tscore"></td>
-            </tr>
-           
-        </tbody>
-    </table>
-    <button type="submit" class="btn btn-primary">Submit</button>
+                    <th scope="col">HOUSE NAME</th>
+                    <th scope="col">GAINED SCORE</th>
+                    <th scope="col">MINUS</th>
+                    <th scope="col">TOTAL SCORE</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    {{#each pukainar.houseBase}}
+                    <th class="pt-3 ps-3" scope="row">PUKAINAR</th>
+                    <td><input class="form-control" type="number" value="{{gained}}" name="gained" id="gained"></td>
+                    <td><input class="form-control" type="number" value="{{minus}}" name="minus" id="minus"></td>
+                    <td><input class="form-control" type="number" value="{{Tscore}}" name="Tscore" id="Tscore"></td>
+                    {{/each}}
+                </tr>
+                <tr>
+                    {{#each thongal.houseBase}}
+                    <th class="pt-3 ps-3" scope="row">THONGAL</th>
+                    <td><input class="form-control" type="number" value="{{gained}}" name="gained" id="gained"></td>
+                    <td><input class="form-control" type="number" value="{{minus}}" name="minus" id="minus"></td>
+                    <td><input class="form-control" type="number" value="{{Tscore}}" name="Tscore" id="Tscore"></td>
+                    {{/each}}
+                </tr>
+                <tr>
+                    {{#each haqana.houseBase}}
+                    <th class="pt-3 ps-3" scope="row">HAQANA</th>
+                    <td><input class="form-control" type="number" value="{{gained}}" name="gained" id="gained"></td>
+                    <td><input class="form-control" type="number" value="{{minus}}" name="minus" id="minus"></td>
+                    <td><input class="form-control" type="number" value="{{Tscore}}" name="Tscore" id="Tscore"></td>
+                    {{/each}}
+                </tr>
+                <tr>
+                    {{#each murukkam.houseBase}}
+                    <th class="pt-3 ps-3 pe-5" scope="row">MURUKKAM</th>
+                    <td><input class="form-control" type="number" value="{{gained}}" name="gained" id="gained"></td>
+                    <td><input class="form-control" type="number" value="{{minus}}" name="minus" id="minus"></td>
+                    <td><input class="form-control" type="number" value="{{Tscore}}" name="Tscore" id="Tscore"></td>
+                    {{/each}}
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="sec2">
+        <br><br>
+        <div class="carousel-tab rounded">
+            <p>SUB JUNIOR HOUSE BASED ENTRY</p>
+        </div>
+        <br>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+
+                    <th scope="col">HOUSE NAME</th>
+                    <th scope="col">GAINED SCORE</th>
+                    <th scope="col">MINUS</th>
+                    <th scope="col">TOTAL SCORE</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    {{#each pukainar.subJuniorBased}}
+                    <th class="pt-3 ps-3" scope="row">PUKAINAR</th>
+                    <td><input class="form-control" type="number" value="{{gained}}" name="sjgained" id="sjgained"></td>
+                    <td><input class="form-control" type="number" value="{{minus}}" name="sjminus" id="sjminus"></td>
+                    <td><input class="form-control" type="number" value="{{Tscore}}" name="sjTscore" id="sjTscore"></td>
+                    {{/each}}
+                </tr>
+                <tr>
+                    {{#each thongal.subJuniorBased}}
+                    <th class="pt-3 ps-3" scope="row">THONGAL</th>
+                    <td><input class="form-control" type="number" value="{{gained}}" name="sjgained" id="sjgained"></td>
+                    <td><input class="form-control" type="number" value="{{minus}}" name="sjminus" id="sjminus"></td>
+                    <td><input class="form-control" type="number" value="{{Tscore}}" name="sjTscore" id="sjTscore"></td>
+                    {{/each}}
+                </tr>
+                <tr>
+                    {{#each haqana.subJuniorBased}}
+                    <th class="pt-3 ps-3" scope="row">HAQANA</th>
+                    <td><input class="form-control" type="number" value="{{gained}}" name="sjgained" id="sjgained"></td>
+                    <td><input class="form-control" type="number" value="{{minus}}" name="sjminus" id="sjminus"></td>
+                    <td><input class="form-control" type="number" value="{{Tscore}}" name="sjTscore" id="sjTscore"></td>
+                    {{/each}}
+                </tr>
+                <tr>
+                    {{#each murukkam.subJuniorBased}}
+                    <th class="pt-3 ps-3 pe-5" scope="row">MURUKKAM</th>
+                    <td><input class="form-control" type="number" value="{{gained}}" name="sjgained" id="sjgained"></td>
+                    <td><input class="form-control" type="number" value="{{minus}}" name="sjminus" id="sjminus"></td>
+                    <td><input class="form-control" type="number" value="{{Tscore}}" name="sjTscore" id="sjTscore"></td>
+                    {{/each}}
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <button type="submit" class="btn btn-primary"><i class="fa-solid fa-floppy-disk"></i> Save</button>
 </form>
 
 <script>
