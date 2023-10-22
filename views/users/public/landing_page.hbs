@@ -1,25 +1,26 @@
 <style>
-    body{
+    body {
         font-family: 'Nunito Sans', sans-serif;
         overflow-x: hidden;
     }
-    .bg{
+
+    .bg {
         background-image: url('https://i.ibb.co/NthFLsR/home-of-kala.jpg');
         height: 900px;
-        background-color: #165f50 ;
+        background-color: #165f50;
         background-repeat: no-repeat;
         background-size: cover;
         background-position: center;
     }
 
-    .container{
+    .container-h {
         display: flex;
         justify-content: center;
         align-items: flex-start;
         height: 100%;
     }
 
-    .logimg{
+    .logimg {
         width: 500px;
         margin-top: 100px;
         display: block;
@@ -27,14 +28,14 @@
         margin-right: auto;
     }
 
-    .bgoverlay{
+    .bgoverlay {
         background-color: #165f50;
         opacity: 0.9;
         height: 100%;
 
     }
 
-    .btnResult{
+    .btnResult {
         display: block;
         margin-left: auto;
         margin-right: auto;
@@ -49,40 +50,263 @@
 
     }
 
-    .btnResult:hover, .btnResult:focus, .btnResult:active{
+    .btnResult:hover,
+    .btnResult:focus,
+    .btnResult:active {
         background-color: white;
-        color:#165f50;
+        color: #165f50;
         border-radius: 10px;
     }
-    
 
-    .resultBtnDiv{
-        margin-top: 100px;
+
+    .resultBtnDiv {
+        margin-top: 200px;
         width: 100%;
+    }
+
+    #about {
+        background-color: #165f50;
+        height: 350px;
+    }
+
+    .aboutimg {
+        border-radius: 100%;
+        width: 250px;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        background-color: rgb(37, 37, 37);
+    }
+
+    h2 {
+        color: white;
+        font-weight: bold;
+    }
+
+    p {
+        color: white;
+        font-size: 16px;
+        font-weight: 500;
+    }
+
+    #about .container {
+        padding-top: 50px;
+    }
+
+    #controllers {
+        background-color: #ffffff;
+        padding: 50px 0px 50px 0px;
+    }
+
+    #controllers img {
+        background-color: #165f50;
+    }
+
+    #controllers p {
+        color: black;
+        font-size: 10px;
+        text-align: center;
+        margin: 0px;
+    }
+
+    #controllers h5 {
+        color: black;
+        font-weight: bolder;
+        text-align: center;
+        font-size: 15px;
+    }
+
+    #controllers h2 {
+        color: #165f50;
+        font-weight: bolder;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    footer {
+        background-color: #333;
+        color: #fff;
+    }
+
+    footer .container {
+        padding-top: 20px;
+    }
+
+    footer p, footer a {
+        text-align: center;
+        font-size: 15px;
+        color: #fff;
     }
 </style>
 
 <section>
     <div class="bg">
-        
-            <div class="container">
-                <div class="row">
-                    <div class="col-12">
-                        <img class="logimg" src="/images/kalathalam-black-prev-ui.png" alt="LOGO-P" border="0">
-                        
-                    </div>
-                    <div class="col-12 resultBtnDiv">
-                        <a style="text-decoration: none;" href="/dashboard">
-                            <button type="button" class="btn btnResult">RESULTS</button>
-                        </a>
-                        
+
+        <div class="container-h ">
+            <div class="row">
+                <div class="col-12">
+                    <img class="logimg" src="/images/kalathalam-black-prev-ui.png" alt="LOGO-P" border="0">
+                </div>
+                <div class="col-12 resultBtnDiv">
+                    <a style="text-decoration: none;" href="/dashboard">
+                        <button type="button" class="btn btnResult">RESULTS</button>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="about" class="d-sm-none d-md-block">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="imgRound">
+                        <img class="aboutimg" src="/images/LOGO P-BG removed.png" alt="LOGO-P" border="0">
                     </div>
                 </div>
-               
-                
-                
+                <div class="col-md-8">
+                    <h2>About KALATHALAM 2k23</h2>
+                    <p>Kalathalam 2023 filled up Darul Irfan Art's Fest. Stage, Non-Stage, and Sports programmes made up
+                        the program's structure. According to their classes, students are divided into Sub Junior,
+                        Junior, Senior, and Super Senior categories. The teams of Kalathalam were filled with Haqana,
+                        Murukkam, Thongal, and Pukainar the epics of Mappila pattu. This curriculum emphasises the
+                        hidden talents and diversity of the pupils to bring out their potential. The programme, which
+                        lasts for one month, concentrates the students' strengths as a group.
+                    </p>
+                </div>
             </div>
-        
-        
+        </div>
     </div>
+    <div id="controllers">
+        <div class="container">
+            <h2 class="text-center">OFFICIAL CONTROLLERS</h2>
+            <div class="row g-3">
+                <div class="col-md-2 col-sm-6">
+                    <div>
+                        <div class="card shadow-lg">
+                            <img src="/images/Unais Ust.png" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h5 class="text-centre">Unais Hudawi</h5>
+                                <p class="text-centre">(CHEIF CONTROLLER)</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-2 col-sm-6">
+                    <div>
+                        <div class="card shadow-lg">
+                            <img src="/images/Haneef Ust.png" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h5 class="text-centre">Haneef Hudawi</h5>
+                                <p class="text-centre">(CONTROLLER)</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-2 col-sm-6">
+                    <div>
+                        <div class="card shadow-lg">
+                            <img src="/images/Yoonus Ust s.png" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h5 class="text-centre">Yoonus Hudawi</h5>
+                                <p class="text-centre">(CONTROLLER)</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-2 col-sm-6">
+                    <div>
+                        <div class="card shadow-lg">
+                            <img src="/images/Shanoob Ust.png" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h5 class="text-centre">Shanoob Hudawi</h5>
+                                <p class="text-centre">(CONTROLLER)</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-2 col-sm-6">
+                    <div>
+                        <div class="card shadow-lg">
+                            <img src="/images/Salman Ust.png" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h5 class="text-centre">Salman Hudawi</h5>
+                                <p class="text-centre">(CONTROLLER)</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-2 col-sm-6 mx-auto">
+                    <div>
+                        <div class="card shadow-lg">
+                            <img src="/images/Irfan Ust.png" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h5 class="text-centre">Irfan Hudawi</h5>
+                                <p class="text-centre">(CONTROLLER)</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br><br>
+            <h2 class="text-center">STUDENT CONTROLLERS</h2>
+            <div class="row g-3">
+                <div class="col-md-2 col-sm-6 mx-auto">
+                    <div>
+                        <div class="card shadow-lg">
+                            <img src="/images/irshad.png" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h5 class="text-centre">Irshad CK</h5>
+                                <p class="text-centre">(CHEIF CONTROLLER)</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-2 col-sm-6 mx-auto">
+                    <div>
+                        <div class="card shadow-lg">
+                            <img src="/images/hashim.png" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h5 class="text-centre">Hashim PP</h5>
+                                <p class="text-centre">(CONTROLLER)</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-2 col-sm-6 mx-auto">
+                    <div>
+                        <div class="card shadow-lg">
+                            <img src="/images/Trop.png" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h5 class="text-centre">Thoufeeque</h5>
+                                <p class="text-centre">(CONTROLLER)</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-2 col-sm-6 mx-auto">
+                    <div>
+                        <div class="card shadow-lg">
+                            <img src="/images/Anshif T.png" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h5 class="text-centre">Anshif T</h5>
+                                <p class="text-centre">(CONTROLLER)</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <p>© Copyright <a class="text-decoration-none" href="https://www.instagram.com/lisanmedia_/">LISAN Media</a> | All Rights Reserved.
+                        <br> Powered by <a class="text-decoration-none" href="https://www.instagram.com/tropu.thoufeeq/">tropu.thoufeeque</a> | TROPICKS
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </footer>
 </section>

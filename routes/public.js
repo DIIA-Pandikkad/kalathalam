@@ -12,14 +12,23 @@ router.get('/', function (req, res, next) {
 router.get('/dashboard', function (req, res, next) {
 
   userHelpers.getHouseResult().then((results) => {
-
-    res.render('users/public/dashboard', {
-      title: 'Dashboard',
-      dashboard: true,
-      pukainar: results[0],
-      thongal: results[1],
-      haqana: results[2],
-      murukkam: results[3]
+    userHelpers.getSportsHouseResult().then((results2) => {
+      userHelpers.getRecentResult().then((recentResult) => {
+        console.log(recentResult[0].data[0]);
+        res.render('users/public/dashboard', {
+          title: 'Dashboard',
+          dashboard: true,
+          pukainar: results[0],
+          thongal: results[1],
+          haqana: results[2],
+          murukkam: results[3],
+          pukainar2: results2[0],
+          thongal2: results2[1],
+          haqana2: results2[2],
+          murukkam2: results2[3],
+          recentResult: recentResult
+        });
+      });
     });
   });
 

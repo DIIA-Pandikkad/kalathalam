@@ -32,6 +32,8 @@ const connect = async (cb) => {
   }
 };
 
+
+
 // function to get the database instance
 const get = () => state.db;
 

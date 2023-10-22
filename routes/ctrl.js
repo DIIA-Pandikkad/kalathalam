@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 var ctrlHelpers = require('../helpers/ctrl-room')
 var fs = require('fs');
+const xlsx = require('mongo-xlsx');
 
 /* GET home page. */
 router.get('/', function (req, res, next) {
@@ -109,7 +110,7 @@ router.post('/programs', function (req, res, next) {
 router.get('/results', function (req, res, next) {
   if (req.session.loggedIn) {
     ctrlHelpers.getPrograms().then((programs) => {
-      console.log(programs);
+      
       res.render('users/ctrl-room/result-entry', { ctrl: true, user: req.session.user, programs: programs });
     })
 
@@ -162,5 +163,37 @@ router.post('/results/housebase', function (req, res, next) {
     }
   })
 });
+
+router.get('/results/sports-housebase', function (req, res, next) {
+  if (req.session.loggedIn) {
+    ctrlHelpers.getSportsHouseResult().then((results) => {
+      console.log(results[0]);
+      res.render('users/ctrl-room/Sports-house-result-entry', { 
+        ctrl: true, 
+        user: req.session.user, 
+        pukainar: results[0], 
+        thongal: results[1], 
+        haqana: results[2], 
+        murukkam: results[3] 
+      });
+    })
+  } else {
+    res.redirect('/admin/auth/login')
+  }
+});
+
+router.post('/results/sports-housebase', function (req, res, next) {
+  console.log(req.body);
+  ctrlHelpers.doSportsHouseResultEntry(req.body).then((response) => {
+    if (response.status) {
+      console.log('Housebase result update success')
+      res.redirect('/admin/results/sports-housebase')
+    } else {
+      console.log('Housebase result update failed')
+      res.redirect('/admin/results/sports-housebase')
+    }
+  })
+});
+
 
 module.exports = router;

@@ -71,7 +71,7 @@
     }
 
     .carousel-tab p {
-        font-size: 30px;
+        font-size: 20px;
         font-weight: 500;
         color: #009d63;
         margin: 10px;
@@ -85,12 +85,12 @@
 <form action="/admin/results/housebase" method="POST" class="login-form">
 
     <a href="/admin"><i class="fa-solid fa-arrow-left"></i>Back</a>
-    <div class="sec1">
+    <div>
         <br>
         <p class="float-end time-p" >Last modified: <strong>{{pukainar.modified}}</strong></p>
         <br><br>
         <div class="carousel-tab rounded">
-            <p>HOUSE BASED ENTRY</p>
+            <p>ARTS HOUSE BASED ENTRY</p>
         </div>
         <br>
         <table class="table table-striped">
@@ -98,52 +98,38 @@
                 <tr>
 
                     <th scope="col">HOUSE NAME</th>
-                    <th scope="col">GAINED SCORE</th>
-                    <th scope="col">MINUS</th>
                     <th scope="col">TOTAL SCORE</th>
 
                 </tr>
             </thead>
             <tbody>
                 <tr>
-                    {{#each pukainar.houseBase}}
                     <th class="pt-3 ps-3" scope="row">PUKAINAR</th>
-                    <td><input class="form-control" type="number" value="{{gained}}" name="gained" id="gained"></td>
-                    <td><input class="form-control" type="number" value="{{minus}}" name="minus" id="minus"></td>
-                    <td><input class="form-control" type="number" value="{{Tscore}}" name="Tscore" id="Tscore"></td>
-                    {{/each}}
+                    <td><input class="form-control" type="number" value="{{pukainar.houseBase}}" name="Tscore" id="Tscore"></td>
+                    
                 </tr>
                 <tr>
-                    {{#each thongal.houseBase}}
                     <th class="pt-3 ps-3" scope="row">THONGAL</th>
-                    <td><input class="form-control" type="number" value="{{gained}}" name="gained" id="gained"></td>
-                    <td><input class="form-control" type="number" value="{{minus}}" name="minus" id="minus"></td>
-                    <td><input class="form-control" type="number" value="{{Tscore}}" name="Tscore" id="Tscore"></td>
-                    {{/each}}
+                    <td><input class="form-control" type="number" value="{{thongal.houseBase}}" name="Tscore" id="Tscore"></td>
+                    
                 </tr>
                 <tr>
-                    {{#each haqana.houseBase}}
                     <th class="pt-3 ps-3" scope="row">HAQANA</th>
-                    <td><input class="form-control" type="number" value="{{gained}}" name="gained" id="gained"></td>
-                    <td><input class="form-control" type="number" value="{{minus}}" name="minus" id="minus"></td>
-                    <td><input class="form-control" type="number" value="{{Tscore}}" name="Tscore" id="Tscore"></td>
-                    {{/each}}
+                    <td><input class="form-control" type="number" value="{{haqana.houseBase}}" name="Tscore" id="Tscore"></td>
+                    
                 </tr>
                 <tr>
-                    {{#each murukkam.houseBase}}
                     <th class="pt-3 ps-3 pe-5" scope="row">MURUKKAM</th>
-                    <td><input class="form-control" type="number" value="{{gained}}" name="gained" id="gained"></td>
-                    <td><input class="form-control" type="number" value="{{minus}}" name="minus" id="minus"></td>
-                    <td><input class="form-control" type="number" value="{{Tscore}}" name="Tscore" id="Tscore"></td>
-                    {{/each}}
+                    <td><input class="form-control" type="number" value="{{murukkam.houseBase}}" name="Tscore" id="Tscore"></td>
+                    
                 </tr>
             </tbody>
         </table>
     </div>
-    <div class="sec2">
+    <div>
         <br><br>
         <div class="carousel-tab rounded">
-            <p>SUB JUNIOR HOUSE BASED ENTRY</p>
+            <p>ARTS SECTION BASED - SUB JUNIOR</p>
         </div>
         <br>
         <table class="table table-striped">
@@ -151,44 +137,147 @@
                 <tr>
 
                     <th scope="col">HOUSE NAME</th>
-                    <th scope="col">GAINED SCORE</th>
-                    <th scope="col">MINUS</th>
                     <th scope="col">TOTAL SCORE</th>
 
                 </tr>
             </thead>
             <tbody>
                 <tr>
-                    {{#each pukainar.subJuniorBased}}
                     <th class="pt-3 ps-3" scope="row">PUKAINAR</th>
-                    <td><input class="form-control" type="number" value="{{gained}}" name="sjgained" id="sjgained"></td>
-                    <td><input class="form-control" type="number" value="{{minus}}" name="sjminus" id="sjminus"></td>
-                    <td><input class="form-control" type="number" value="{{Tscore}}" name="sjTscore" id="sjTscore"></td>
-                    {{/each}}
+                    <td><input class="form-control" type="number" value="{{pukainar.subJuniorBased}}" name="sjTscore" id="sjTscore"></td>
+                    
                 </tr>
                 <tr>
-                    {{#each thongal.subJuniorBased}}
                     <th class="pt-3 ps-3" scope="row">THONGAL</th>
-                    <td><input class="form-control" type="number" value="{{gained}}" name="sjgained" id="sjgained"></td>
-                    <td><input class="form-control" type="number" value="{{minus}}" name="sjminus" id="sjminus"></td>
-                    <td><input class="form-control" type="number" value="{{Tscore}}" name="sjTscore" id="sjTscore"></td>
-                    {{/each}}
+                    <td><input class="form-control" type="number" value="{{thongal.subJuniorBased}}" name="sjTscore" id="sjTscore"></td>
+                    
                 </tr>
                 <tr>
-                    {{#each haqana.subJuniorBased}}
                     <th class="pt-3 ps-3" scope="row">HAQANA</th>
-                    <td><input class="form-control" type="number" value="{{gained}}" name="sjgained" id="sjgained"></td>
-                    <td><input class="form-control" type="number" value="{{minus}}" name="sjminus" id="sjminus"></td>
-                    <td><input class="form-control" type="number" value="{{Tscore}}" name="sjTscore" id="sjTscore"></td>
-                    {{/each}}
+                    <td><input class="form-control" type="number" value="{{haqana.subJuniorBased}}" name="sjTscore" id="sjTscore"></td>
+                    
                 </tr>
                 <tr>
-                    {{#each murukkam.subJuniorBased}}
                     <th class="pt-3 ps-3 pe-5" scope="row">MURUKKAM</th>
-                    <td><input class="form-control" type="number" value="{{gained}}" name="sjgained" id="sjgained"></td>
-                    <td><input class="form-control" type="number" value="{{minus}}" name="sjminus" id="sjminus"></td>
-                    <td><input class="form-control" type="number" value="{{Tscore}}" name="sjTscore" id="sjTscore"></td>
-                    {{/each}}
+                    <td><input class="form-control" type="number" value="{{murukkam.subJuniorBased}}" name="sjTscore" id="sjTscore"></td>
+                    
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div>
+        <br><br>
+        <div class="carousel-tab rounded">
+            <p>ARTS SECTION BASED - JUNIOR</p>
+        </div>
+        <br>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+
+                    <th scope="col">HOUSE NAME</th>
+                    <th scope="col">TOTAL SCORE</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th class="pt-3 ps-3" scope="row">PUKAINAR</th>
+                    <td><input class="form-control" type="number" value="{{pukainar.JuniorBased}}" name="jTscore" id="jTscore"></td>
+                    
+                </tr>
+                <tr>
+                    <th class="pt-3 ps-3" scope="row">THONGAL</th>
+                    <td><input class="form-control" type="number" value="{{thongal.JuniorBased}}" name="jTscore" id="jTscore"></td>
+                    
+                </tr>
+                <tr>
+                    <th class="pt-3 ps-3" scope="row">HAQANA</th>
+                    <td><input class="form-control" type="number" value="{{haqana.JuniorBased}}" name="jTscore" id="jTscore"></td>
+                    
+                </tr>
+                <tr>
+                    <th class="pt-3 ps-3 pe-5" scope="row">MURUKKAM</th>
+                    <td><input class="form-control" type="number" value="{{murukkam.JuniorBased}}" name="jTscore" id="jTscore"></td>
+                    
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div>
+        <br><br>
+        <div class="carousel-tab rounded">
+            <p>ARTS SECTION BASED - SENIOR</p>
+        </div>
+        <br>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+
+                    <th scope="col">HOUSE NAME</th>
+                    <th scope="col">TOTAL SCORE</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th class="pt-3 ps-3" scope="row">PUKAINAR</th>
+                    <td><input class="form-control" type="number" value="{{pukainar.SeniorBased}}" name="sTscore" id="sTscore"></td>
+                    
+                </tr>
+                <tr>
+                    <th class="pt-3 ps-3" scope="row">THONGAL</th>
+                    <td><input class="form-control" type="number" value="{{thongal.SeniorBased}}" name="sTscore" id="sTscore"></td>
+                    
+                </tr>
+                <tr>
+                    <th class="pt-3 ps-3" scope="row">HAQANA</th>
+                    <td><input class="form-control" type="number" value="{{haqana.SeniorBased}}" name="sTscore" id="sTscore"></td>
+                    
+                </tr>
+                <tr>
+                    <th class="pt-3 ps-3 pe-5" scope="row">MURUKKAM</th>
+                    <td><input class="form-control" type="number" value="{{murukkam.SeniorBased}}" name="sTscore" id="sTscore"></td>
+                    
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div>
+        <br><br>
+        <div class="carousel-tab rounded">
+            <p>ARTS SECTION BASED - SUPER SENIOR</p>
+        </div>
+        <br>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+
+                    <th scope="col">HOUSE NAME</th>
+                    <th scope="col">TOTAL SCORE</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th class="pt-3 ps-3" scope="row">PUKAINAR</th>
+                    <td><input class="form-control" type="number" value="{{pukainar.superSeniorBased}}" name="ssTscore" id="ssTscore"></td>
+                    
+                </tr>
+                <tr>
+                    <th class="pt-3 ps-3" scope="row">THONGAL</th>
+                    <td><input class="form-control" type="number" value="{{thongal.superSeniorBased}}" name="ssTscore" id="ssTscore"></td>
+                    
+                </tr>
+                <tr>
+                    <th class="pt-3 ps-3" scope="row">HAQANA</th>
+                    <td><input class="form-control" type="number" value="{{haqana.superSeniorBased}}" name="ssTscore" id="ssTscore"></td>
+                    
+                </tr>
+                <tr>
+                    <th class="pt-3 ps-3 pe-5" scope="row">MURUKKAM</th>
+                    <td><input class="form-control" type="number" value="{{murukkam.superSeniorBased}}" name="ssTscore" id="ssTscore"></td>
+                    
                 </tr>
             </tbody>
         </table>

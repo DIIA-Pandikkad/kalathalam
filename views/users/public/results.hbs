@@ -11,25 +11,12 @@
     box-shadow: inset 0 0 0 1000px rgba(255, 255, 255, 0.1);
   }
 
-  body {
-      {
-        {
-        !-- overflow-x: scroll;
-        --
-      }
-    }
-  }
-
-  
-
-  .result-p{
+  .result-p {
     font-size: 15px;
     color: #009d63;
     margin: 0;
     padding: 0;
   }
-
-  
 </style>
 <div class="row my-5">
   <form action="/result-search" method="GET">
@@ -44,7 +31,6 @@
   </form>
 </div>
 <div class="row my-5">
-
   <h3>{{result.pcode}} {{result.pname}}</h3>
   <br><br>
   {{#if result}}
@@ -54,50 +40,33 @@
       <div class="col-md-4">
         <div class="bg-white shadow-sm d-flex justify-content-around align-items-center rounded">
           <div class="col-sm-4 ps-2">
-            <img src="{{imageAdd}}" alt="" class="p-0 img-thumbnail rounded float-start">
+            <img src="{{imageAdd}}" alt="" class="p-0 mt-2 mb-2 img-thumbnail rounded float-start">
           </div>
           <div class="col-sm-8 p-2">
             <h5>{{cname}}</h5>
-            <p class="result-p" > Ad NO: <strong>{{cadno}}</strong>
-            <br> House: <strong>{{house}}</strong>
-            <br> Position: <strong>{{pos}}</strong>
-            <br> Grade: <strong>{{grade}}</strong>
-            <br> Points: <strong>{{score}}</strong></p>
+            <p class="result-p"> Ad NO: <strong>{{cadno}}</strong>
+              <br> House: <strong>{{house}}</strong>
+              <br> Rank: <strong>{{pos}}</strong>
+              <br> Grade: <strong>{{grade}}</strong>
+              <br> Points: <strong>{{score}}</strong>
+            </p>
           </div>
         </div>
       </div>
       {{/each}}
     </div>
-    {{!-- <table class="table table-striped bg-white rounded shadow-sm  table-hover">
-      <thead>
-        <tr>
 
-          <th scope="col">Photo</th>
-          <th scope="col">Candidate Code</th>
-          <th scope="col">Candidate Name</th>
-          <th scope="col">House</th>
-          <th scope="col">Pos</th>
-          <th scope="col">Grade</th>
-          <th scope="col">Score</th>
-        </tr>
-      </thead>
-      <tbody>
-        {{#each result.data}}
-        <tr>
-
-          <td scope="row" class="text-center"><img class="ppimg" src="{{imageAdd}}" alt=""></td>
-          <td>{{cadno}}</td>
-          <td>{{cname}}</td>
-          <td>{{house}}</td>
-          <td>{{pos}}</td>
-          <td>{{grade}}</td>
-          <td>{{score}}</td>
-        </tr>
-        {{/each}}
-      </tbody>
-    </table> --}}
   </div>
   {{/if}}
+</div>
+<div>
+  <div class="ratio ratio-4x3">
+    <iframe jsname="L5Fo6c" class="YMEQtf"
+      sandbox="allow-scripts allow-popups allow-forms allow-same-origin allow-popups-to-escape-sandbox allow-downloads allow-modals"
+      frameborder="0" aria-label="Apps Script"
+      src="https://script.google.com/macros/s/AKfycbzTz5G3UFtRu_h8o5arp0TGJj0I0u093ev2IHAqufyqyUXsHcBa/exec"
+      allowfullscreen></iframe>
+  </div>
 </div>
 
 <script>

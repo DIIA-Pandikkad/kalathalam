@@ -5,4 +5,5 @@ module.exports={
     CTRLER_COLLECTION:'ctrlers',
     RESULT_COLLECTION:'results',
     HOUSE_RESULT_COLLECTION:'house_results',
+    SPORTS_HOUSE_RESULT_COLLECTION:'sports_house_results',
 }

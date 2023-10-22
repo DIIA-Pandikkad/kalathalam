@@ -1,0 +1,291 @@
+<style>
+    body {
+        background-color: #f2f2f2;
+    }
+
+    .login-form {
+        background-color: #fff;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        margin: 50px auto;
+        max-width: 700px;
+        padding: 20px;
+    }
+
+    .login-form h1 {
+        font-size: 24px;
+        margin-bottom: 20px;
+        text-align: center;
+    }
+
+    .login-form label {
+        display: block;
+        font-size: 16px;
+        margin-bottom: 10px;
+    }
+
+    .login-form input[type="text"],
+    .login-form input[type="password"],
+    .login-form select,
+    {
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    font-size: 16px;
+    padding: 10px;
+    width: 100%;
+    }
+
+    .login-form button[type="submit"] {
+        background-color: #4CAF50;
+        border: none;
+        border-radius: 3px;
+        color: #fff;
+        cursor: pointer;
+        font-size: 16px;
+        margin-top: 20px;
+        padding: 10px;
+        width: 100%;
+    }
+
+    .login-form button[type="submit"]:hover {
+        background-color: #3e8e41;
+    }
+
+    .logoImg {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    /* Chrome, Safari, Edge, Opera */
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+
+    .carousel-tab {
+
+        background-color: #c1efde;
+        width: fit-content;
+    }
+
+    .carousel-tab p {
+        font-size: 20px;
+        font-weight: 500;
+        color: #009d63;
+        margin: 10px;
+    }
+
+    .time-p{
+        font-size: x-small;
+    }
+</style>
+
+<form action="/admin/results/sports-housebase" method="POST" class="login-form">
+
+    <a href="/admin"><i class="fa-solid fa-arrow-left"></i>Back</a>
+    <div>
+        <br>
+        <p class="float-end time-p" >Last modified: <strong>{{pukainar.modified}}</strong></p>
+        <br><br>
+        <div class="carousel-tab rounded">
+            <p>SPORTS HOUSE BASED ENTRY</p>
+        </div>
+        <br>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+
+                    <th scope="col">HOUSE NAME</th>
+                    <th scope="col">TOTAL SCORE</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th class="pt-3 ps-3" scope="row">PUKAINAR</th>
+                    <td><input class="form-control" type="number" value="{{pukainar.houseBase}}" name="Tscore" id="Tscore"></td>
+                    
+                </tr>
+                <tr>
+                    <th class="pt-3 ps-3" scope="row">THONGAL</th>
+                    <td><input class="form-control" type="number" value="{{thongal.houseBase}}" name="Tscore" id="Tscore"></td>
+                    
+                </tr>
+                <tr>
+                    <th class="pt-3 ps-3" scope="row">HAQANA</th>
+                    <td><input class="form-control" type="number" value="{{haqana.houseBase}}" name="Tscore" id="Tscore"></td>
+                    
+                </tr>
+                <tr>
+                    <th class="pt-3 ps-3 pe-5" scope="row">MURUKKAM</th>
+                    <td><input class="form-control" type="number" value="{{murukkam.houseBase}}" name="Tscore" id="Tscore"></td>
+                    
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div>
+        <br><br>
+        <div class="carousel-tab rounded">
+            <p>SPORTS SECTION BASED - SUB JUNIOR</p>
+        </div>
+        <br>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+
+                    <th scope="col">HOUSE NAME</th>
+                    <th scope="col">TOTAL SCORE</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th class="pt-3 ps-3" scope="row">PUKAINAR</th>
+                    <td><input class="form-control" type="number" value="{{pukainar.subJuniorBased}}" name="sjTscore" id="sjTscore"></td>
+                    
+                </tr>
+                <tr>
+                    <th class="pt-3 ps-3" scope="row">THONGAL</th>
+                    <td><input class="form-control" type="number" value="{{thongal.subJuniorBased}}" name="sjTscore" id="sjTscore"></td>
+                    
+                </tr>
+                <tr>
+                    <th class="pt-3 ps-3" scope="row">HAQANA</th>
+                    <td><input class="form-control" type="number" value="{{haqana.subJuniorBased}}" name="sjTscore" id="sjTscore"></td>
+                    
+                </tr>
+                <tr>
+                    <th class="pt-3 ps-3 pe-5" scope="row">MURUKKAM</th>
+                    <td><input class="form-control" type="number" value="{{murukkam.subJuniorBased}}" name="sjTscore" id="sjTscore"></td>
+                    
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div>
+        <br><br>
+        <div class="carousel-tab rounded">
+            <p>SPORTS SECTION BASED - JUNIOR</p>
+        </div>
+        <br>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+
+                    <th scope="col">HOUSE NAME</th>
+                    <th scope="col">TOTAL SCORE</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th class="pt-3 ps-3" scope="row">PUKAINAR</th>
+                    <td><input class="form-control" type="number" value="{{pukainar.JuniorBased}}" name="jTscore" id="jTscore"></td>
+                    
+                </tr>
+                <tr>
+                    <th class="pt-3 ps-3" scope="row">THONGAL</th>
+                    <td><input class="form-control" type="number" value="{{thongal.JuniorBased}}" name="jTscore" id="jTscore"></td>
+                    
+                </tr>
+                <tr>
+                    <th class="pt-3 ps-3" scope="row">HAQANA</th>
+                    <td><input class="form-control" type="number" value="{{haqana.JuniorBased}}" name="jTscore" id="jTscore"></td>
+                    
+                </tr>
+                <tr>
+                    <th class="pt-3 ps-3 pe-5" scope="row">MURUKKAM</th>
+                    <td><input class="form-control" type="number" value="{{murukkam.JuniorBased}}" name="jTscore" id="jTscore"></td>
+                    
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div>
+        <br><br>
+        <div class="carousel-tab rounded">
+            <p>SPORTS SECTION BASED - SENIOR</p>
+        </div>
+        <br>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+
+                    <th scope="col">HOUSE NAME</th>
+                    <th scope="col">TOTAL SCORE</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th class="pt-3 ps-3" scope="row">PUKAINAR</th>
+                    <td><input class="form-control" type="number" value="{{pukainar.SeniorBased}}" name="sTscore" id="sTscore"></td>
+                    
+                </tr>
+                <tr>
+                    <th class="pt-3 ps-3" scope="row">THONGAL</th>
+                    <td><input class="form-control" type="number" value="{{thongal.SeniorBased}}" name="sTscore" id="sTscore"></td>
+                    
+                </tr>
+                <tr>
+                    <th class="pt-3 ps-3" scope="row">HAQANA</th>
+                    <td><input class="form-control" type="number" value="{{haqana.SeniorBased}}" name="sTscore" id="sTscore"></td>
+                    
+                </tr>
+                <tr>
+                    <th class="pt-3 ps-3 pe-5" scope="row">MURUKKAM</th>
+                    <td><input class="form-control" type="number" value="{{murukkam.SeniorBased}}" name="sTscore" id="sTscore"></td>
+                    
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div>
+        <br><br>
+        <div class="carousel-tab rounded">
+            <p>SPORTS SECTION BASED - SUPER SENIOR</p>
+        </div>
+        <br>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+
+                    <th scope="col">HOUSE NAME</th>
+                    <th scope="col">TOTAL SCORE</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th class="pt-3 ps-3" scope="row">PUKAINAR</th>
+                    <td><input class="form-control" type="number" value="{{pukainar.superSeniorBased}}" name="ssTscore" id="ssTscore"></td>
+                    
+                </tr>
+                <tr>
+                    <th class="pt-3 ps-3" scope="row">THONGAL</th>
+                    <td><input class="form-control" type="number" value="{{thongal.superSeniorBased}}" name="ssTscore" id="ssTscore"></td>
+                    
+                </tr>
+                <tr>
+                    <th class="pt-3 ps-3" scope="row">HAQANA</th>
+                    <td><input class="form-control" type="number" value="{{haqana.superSeniorBased}}" name="ssTscore" id="ssTscore"></td>
+                    
+                </tr>
+                <tr>
+                    <th class="pt-3 ps-3 pe-5" scope="row">MURUKKAM</th>
+                    <td><input class="form-control" type="number" value="{{murukkam.superSeniorBased}}" name="ssTscore" id="ssTscore"></td>
+                    
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <button type="submit" class="btn btn-primary"><i class="fa-solid fa-floppy-disk"></i> Save</button>
+</form>
+
+<script>
+
+</script>
