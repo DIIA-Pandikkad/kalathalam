@@ -79,6 +79,13 @@
     background-color: #009d63;
     color: #fdfdfd;
   }
+
+  .result-p {
+    font-size: 15px;
+    color: #009d63;
+    margin: 0;
+    padding: 0;
+  }
 </style>
 
 
@@ -656,7 +663,9 @@
   </div>
   <div class="col-12">
     <div class="p-3 bg-white shadow-sm rounded">
+
       {{#each recentResult}}
+      <br><br>
       <h3>{{pcode}} {{pname}}</h3>
       <br>
       <div class="row g-3">
