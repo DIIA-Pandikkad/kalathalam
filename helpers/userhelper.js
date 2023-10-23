@@ -47,7 +47,7 @@ module.exports = {
     getRecentResult: () => {
         return new Promise(async (resolve, reject) => {
             let result = await db.get().collection(collection.RESULT_COLLECTION).find().sort({ _id: -1 }).limit(15).toArray()
-            console.log(result);
+            console.log(result[0].data[0]);
             resolve(result)
         })
     }
