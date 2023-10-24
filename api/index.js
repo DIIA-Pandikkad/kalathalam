@@ -3,7 +3,7 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-var hbs=require('express-handlebars');
+var hbs = require('express-handlebars');
 const { v4 } = require('uuid');
 
 var ctrlRouter = require('../routes/ctrl');
@@ -13,7 +13,7 @@ var testRouter = require('../routes/test');
 
 var app = express();
 var db = require('../config/connection')
-var session=require('express-session')
+var session = require('express-session')
 var fileUpload = require('express-fileupload')
 
 // view engine setup\
@@ -21,13 +21,13 @@ app.use(express.static(__dirname + '../public'));
 app.set('views', path.join(__dirname, '../views'));
 app.set('view engine', 'hbs');
 
-app.engine('hbs',hbs.engine({
-  extname:'hbs',
-  defaultLayout:'layout',
+app.engine('hbs', hbs.engine({
+  extname: 'hbs',
+  defaultLayout: 'layout',
   // layoutsDir:__dirname+'../views/layout/',
-  layoutsDir:path.join(__dirname,'../views/layout/'),
+  layoutsDir: path.join(__dirname, '../views/layout/'),
   // partialsDir:__dirname+'../views/partials/'
-  partialsDir:path.join(__dirname,'../views/partials/')
+  partialsDir: path.join(__dirname, '../views/partials/')
 }))
 
 app.use(logger('dev'));
@@ -42,12 +42,12 @@ app.use(session({
 }));
 app.use(fileUpload())
 
-db.connect((err)=>{
-  if(err)
-  console.log('Error'+err )
-  else
-  console.log('Database Connected');
-  
+db.connect((err) => {
+  if (err) {
+    console.log('Error' + err);
+  } else {
+    console.log('Database Connected');
+  }
 })
 
 
@@ -70,12 +70,12 @@ app.get('/api/item/:slug', (req, res) => {
 });
 
 // catch 404 and forward to error handler
-app.use(function(req, res, next) {
+app.use(function (req, res, next) {
   next(createError(404));
 });
 
 // error handler
-app.use(function(err, req, res, next) {
+app.use(function (err, req, res, next) {
   // set locals, only providing error in development
   res.locals.message = err.message;
   res.locals.error = req.app.get('env') === 'development' ? err : {};
