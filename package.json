@@ -26,6 +26,9 @@
     "sass": "^1.66.1",
     "uuid": "^9.0.1"
   },
+  "engines": {
+    "node": ">=18.18.0 <19.0.0"
+  },
   "description": "https://didactic-winner-59rvj99xw59hp4rx.github.dev/",
   "main": "app.js",
   "keywords": [],
