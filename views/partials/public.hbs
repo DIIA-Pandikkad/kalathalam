@@ -4,57 +4,7 @@
   }
 </style>
 {{#if dashboard}}
-{{!-- <div class="row dashPage">
-  <nav class="col-2 navbar">
-    <div class="layoutSidebar hideNav">
-      <div class="sidebarButtons d-flex">
-        <div class="toggle-bar" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions"
-          aria-controls="offcanvasWithBothOptions">
-          <i class="fas fa-bars smHide hideable d-none"></i>
-        </div>
-        <a href="/"><i class="fas fa-home smHide hideable d-none"></i></a>
-        <div class="flex-grow-1 "> </div>
-        <i class="fas fa-close smHide hideable d-none" onclick="hideSidebar()"></i>
-        <i class="fas fa-bars openNav " onclick="hideSidebar()"></i>
-      </div>
 
-      <div class="sidebarContents d-flex align-items-center">
-        <div class="col-md-12 navitemsbar">
-          <ul class="nav flex-column navbarMenue hideMenue">
-            <li class="nav-item">
-              <a class="nav-link text-left active" href="/dashboard">DASHBOARD</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link text-left" href="/dashboard/leaderboard"></i>LEADERBOARD</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link text-left" href="/dashboard/results">RESULT</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link text-left" href="/dashboard/settings">HOUSE BASED</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link text-left" href="/dashboard/logout">SCHEDULE</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </nav>
-
-  <div class="hideModePage hidePage">
-    <div class="row">
-      <div class="col contentSpace ">
-        <div class="row g-3 container ">
-          {{{body}}}
-        </div>
-      </div>
-      <div class="col-2 sideSpace">
-      </div>
-    </div>
-  </div>
-
-</div> --}}
 <div class="d-flex" id="wrapper">
   <!-- Sidebar -->
   <div class="bg-white" id="sidebar-wrapper">
@@ -117,7 +67,7 @@
 
 
     <div class="toggle-button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions"
-      aria-controls="offcanvasWithBothOptions" onmouseenter="toggleNav()" onmouseleave="toggleNav()">
+      aria-controls="offcanvasWithBothOptions">
       <div class="bar"></div>
       <div class="bar"></div>
       <div class="bar"></div>
@@ -133,9 +83,7 @@
         </div>
 
 
-        {{!-- <i class="bi bi-arrow-right-circle-fill" data-bs-dismiss="offcanvas" aria-label="Close"></i> --}}
-        {{!-- <button type="button" class="btn-arrow" data-bs-dismiss="offcanvas" aria-label="Close"></button> --}}
-      </div>
+         </div>
       <div class="offcanvas-body">
         <ul class="navbar-nav justify-content-end flex-grow-1 ">
           <li class="nav-item">
@@ -155,34 +103,3 @@
     </div>
   </div>
 </nav>
-
-
-
-<script>
-  function toggleNav() {
-    const toggleButton = document.querySelector('.toggle-button');
-    toggleButton.classList.toggle('open');
-  }
-
-  function hideSidebar() {
-    const sidebar = document.querySelector('.layoutSidebar');
-    const navbarMenue = document.querySelector('.navbarMenue');
-    const navbarButtons = document.querySelectorAll('.hideable');
-    const openNav = document.querySelector('.openNav');
-    const page = document.querySelector('.hideModePage');
-    const sideSpace = document.querySelector('.sideSpace');
-
-    sidebar.classList.toggle('hideNav');
-    navbarMenue.classList.toggle('hideMenue');
-    navbarButtons.forEach(button => button.classList.toggle('d-none'));
-    openNav.classList.toggle('d-none');
-    page.classList.toggle('col-10');
-    page.classList.toggle('hidePage');
-    sideSpace.classList.toggle('sideSpace-decre');
-    console.log('hide');
-
-  }
-
-
-
-</script>
